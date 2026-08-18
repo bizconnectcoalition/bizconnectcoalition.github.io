@@ -99,10 +99,10 @@
       <div class="table-scroll">
         <table class="data-table">
           <thead>
-            <tr><th>Business Name</th><th>Owner</th><th>Category</th><th>Location</th><th>Contact</th><th>Vet Owned</th></tr>
+            <tr><th>Business Name</th><th>Owner</th><th>Category</th><th>Location</th><th>Contact</th></tr>
           </thead>
-          <tbody>
-            <tr><td colspan="6">
+          <tbody id="dirBody">
+            <tr><td colspan="5">
               <div class="tbl-empty">
                 <b>The premium directory publishes as members join.</b>
                 Premium members of this chapter are listed here with their business, category, and contact details — visible to every member of the chapter.
@@ -130,6 +130,15 @@
         <div class="info-card">
           <h4>Attendee lists</h4>
           <p>Premium members receive the attendee contact list after every event — so the conversation doesn't end when the room empties.</p>
+        </div>
+      </div>
+      <div id="pastEvents" style="display:none;margin-top:30px">
+        <h3 style="font-size:20px;margin-bottom:14px">Recent chapter events</h3>
+        <div class="table-scroll">
+          <table class="data-table">
+            <thead><tr><th>Event</th><th>Date</th><th>Details</th></tr></thead>
+            <tbody id="eventsBody"></tbody>
+          </table>
         </div>
       </div>
       <div style="margin-top:26px">
@@ -208,9 +217,11 @@
 </footer>
 
 <script src="data/chapters.js"></script>
+<script src="data/directory.js"></script>
 <script src="assets/js/site.js"></script>
 <script>
 (function(){
+  function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;");}
   var slug=new URLSearchParams(location.search).get("c");
   var ch=BCC_CHAPTERS.find(function(c){return c.slug===slug;})||BCC_CHAPTERS[0];
   document.title=ch.name+" — Biz Connect Coalition";
@@ -224,6 +235,30 @@
   document.getElementById("chStatusLabel").textContent=ch.status==="active"?"Active chapter":"Forming — founding members wanted";
   document.getElementById("aboutCommon").textContent=
     "Every member of "+ch.name+" shares the same bond — that's the foundation. Business gets easier when the relationship already exists.";
+
+  /* seeded premium directory (recovered from the previous site) */
+  var dir=(window.BCC_DIRECTORY||{})[ch.slug];
+  if(dir&&dir.length){
+    document.getElementById("dirBody").innerHTML=dir.map(function(r){
+      return "<tr><td style='color:var(--ivory)'>"+esc(r[1])+"</td><td>"+esc(r[0])+"</td><td>"+esc(r[3])+"</td><td>"+esc(r[2])+"</td><td style='color:var(--gold-hi)'>"+esc(r[4])+"</td></tr>";
+    }).join("");
+  }
+
+  /* facilitator + recent events (recovered from the previous site) */
+  var info=(window.BCC_CHAPTER_INFO||{})[ch.slug];
+  if(info){
+    if(info.facilitator){
+      document.getElementById("aboutCommon").textContent=
+        "Chapter facilitator: "+info.facilitator+" — "+info.facilitatorTitle+". Every member shares the same bond; business gets easier when the relationship already exists.";
+    }
+    if(info.events&&info.events.length){
+      document.getElementById("pastEvents").style.display="block";
+      document.getElementById("eventsBody").innerHTML=info.events.map(function(e){
+        return "<tr><td style='color:var(--ivory)'>"+esc(e[0])+"</td><td style='white-space:nowrap'>"+esc(e[1])+"</td><td>"+esc(e[2])+"</td></tr>";
+      }).join("");
+      document.getElementById("eventNote").textContent="This chapter hosts regular in-person networking nights — see recent events below. The next date is being scheduled now.";
+    }
+  }
 })();
 </script>
 </body>

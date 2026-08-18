@@ -77,31 +77,80 @@
     <div class="map-card reveal" data-d="2">
       <div class="map-head">
         <div class="mt"><span class="live-dot"></span> The chapter map</div>
-        <div class="map-chip">Coast to coast</div>
+        <div class="map-chip">Est. New Hope, PA</div>
       </div>
       <div class="map-svg-wrap" id="mapWrap">
-        <svg id="regionMap" viewBox="0 0 600 380" role="img" aria-label="Stylized map with glowing chapter pins">
+        <svg id="regionMap" viewBox="0 0 600 380" role="img" aria-label="Map of the Delaware Valley — greater Philadelphia region — with glowing chapter pins">
           <defs>
-            <radialGradient id="landGrad" cx="50%" cy="35%" r="80%">
+            <radialGradient id="landGrad" cx="45%" cy="40%" r="85%">
               <stop offset="0" stop-color="#1B3160"/><stop offset="1" stop-color="#0E1F40"/>
+            </radialGradient>
+            <radialGradient id="landGrad2" cx="55%" cy="35%" r="85%">
+              <stop offset="0" stop-color="#172C58"/><stop offset="1" stop-color="#0C1C3A"/>
             </radialGradient>
             <filter id="pinGlow" x="-80%" y="-80%" width="260%" height="260%">
               <feGaussianBlur stdDeviation="3.4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
             </filter>
+            <filter id="hqGlow" x="-120%" y="-120%" width="340%" height="340%">
+              <feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
           </defs>
           <g class="map-drift">
-            <path d="M70 120 C110 92 150 96 190 88 C230 80 250 60 300 66 C350 72 380 60 430 74 C480 88 520 96 540 130 C556 158 548 190 528 214 C512 234 522 262 500 286 C476 312 440 300 402 306 C360 313 340 336 300 330 C258 324 236 342 196 332 C158 322 128 330 100 306 C74 284 84 254 66 228 C50 204 44 176 56 152 C62 138 62 130 70 120 Z"
-              fill="url(#landGrad)" stroke="rgba(198,151,47,.32)" stroke-width="1.4"/>
-            <g fill="rgba(155,166,188,.16)">
-              <circle cx="140" cy="150" r="1.4"/><circle cx="200" cy="140" r="1.4"/><circle cx="260" cy="150" r="1.4"/><circle cx="320" cy="140" r="1.4"/><circle cx="380" cy="150" r="1.4"/><circle cx="440" cy="160" r="1.4"/>
-              <circle cx="160" cy="200" r="1.4"/><circle cx="230" cy="200" r="1.4"/><circle cx="300" cy="200" r="1.4"/><circle cx="370" cy="205" r="1.4"/><circle cx="440" cy="210" r="1.4"/>
-              <circle cx="150" cy="250" r="1.4"/><circle cx="220" cy="260" r="1.4"/><circle cx="300" cy="255" r="1.4"/><circle cx="380" cy="260" r="1.4"/><circle cx="450" cy="255" r="1.4"/>
+            <!-- PENNSYLVANIA — west of the Delaware River -->
+            <path d="M14 26 L388 16
+              C393 48 380 78 393 106 C400 122 410 132 405 148
+              C399 164 420 170 424 180
+              C419 200 392 212 373 226
+              C354 242 368 264 391 284 C412 302 436 332 447 362
+              L418 378 L14 378 Z"
+              fill="url(#landGrad)" stroke="rgba(198,151,47,.30)" stroke-width="1.2"/>
+            <!-- NEW JERSEY — between the river and the Atlantic -->
+            <path d="M396 16 L560 8
+              C574 62 552 118 562 168 C548 226 512 292 476 352
+              L455 362
+              C444 332 420 302 399 284 C376 264 362 242 381 226
+              C400 212 427 200 432 180
+              C428 170 407 164 413 148 C418 132 408 122 401 106
+              C388 78 401 48 396 16 Z"
+              fill="url(#landGrad2)" stroke="rgba(198,151,47,.22)" stroke-width="1.1"/>
+            <!-- Atlantic shore hatching -->
+            <g stroke="rgba(155,166,188,.28)" stroke-width="1" fill="none">
+              <path d="M574 70 C566 108 572 140 566 176" stroke-dasharray="2 6"/>
+              <path d="M566 200 C552 250 528 300 498 348" stroke-dasharray="2 6"/>
             </g>
-            <g stroke="rgba(198,151,47,.28)" stroke-width="1" fill="none" stroke-dasharray="3 5">
-              <path d="M150 170 L250 140 L360 200 L460 160"/>
-              <path d="M180 250 L300 210 L420 250"/>
-              <path d="M250 140 L300 210"/>
-              <path d="M360 200 L300 210"/>
+            <!-- region labels -->
+            <text x="120" y="120" fill="rgba(155,166,188,.30)" font-family="'IBM Plex Mono',monospace" font-size="13" letter-spacing="7">PENNSYLVANIA</text>
+            <text x="452" y="252" fill="rgba(155,166,188,.30)" font-family="'IBM Plex Mono',monospace" font-size="12" letter-spacing="5" transform="rotate(-62 452 252)">NEW JERSEY</text>
+            <text x="500" y="330" fill="rgba(155,166,188,.24)" font-family="'Cormorant Garamond',serif" font-size="14" font-style="italic" transform="rotate(-56 500 330)">Atlantic Ocean</text>
+            <!-- Delaware River label along the bend -->
+            <text x="404" y="252" fill="rgba(231,200,120,.42)" font-family="'Cormorant Garamond',serif" font-size="12.5" font-style="italic" transform="rotate(-38 404 252)">Delaware River</text>
+            <!-- reference cities -->
+            <g font-family="'IBM Plex Mono',monospace" font-size="9.5" fill="rgba(221,224,230,.62)">
+              <circle cx="356" cy="228" r="2.6" fill="rgba(221,224,230,.65)"/>
+              <text x="296" y="222">Philadelphia</text>
+              <circle cx="428" cy="168" r="2" fill="rgba(155,166,188,.5)"/>
+              <text x="436" y="164" fill="rgba(155,166,188,.55)">Trenton</text>
+              <circle cx="364" cy="140" r="2" fill="rgba(155,166,188,.5)"/>
+              <text x="300" y="136" fill="rgba(155,166,188,.55)">Doylestown</text>
+              <circle cx="196" cy="192" r="2" fill="rgba(155,166,188,.5)"/>
+              <text x="150" y="208" fill="rgba(155,166,188,.55)">Reading</text>
+              <circle cx="276" cy="112" r="2" fill="rgba(155,166,188,.5)"/>
+              <text x="222" y="106" fill="rgba(155,166,188,.55)">Allentown</text>
+            </g>
+            <!-- HQ: New Hope, PA -->
+            <g id="hqMarker">
+              <circle cx="404" cy="130" r="11" fill="none" stroke="rgba(231,200,120,.55)" stroke-width="1" stroke-dasharray="2 3"/>
+              <path d="M404 122 L406.4 127.2 L412 127.8 L407.8 131.6 L409 137 L404 134.2 L399 137 L400.2 131.6 L396 127.8 L401.6 127.2 Z"
+                fill="#F0DCA0" filter="url(#hqGlow)"/>
+              <text x="368" y="116" font-family="'IBM Plex Mono',monospace" font-size="9.5" fill="#E7C878" letter-spacing="1">NEW HOPE · HQ</text>
+            </g>
+            <!-- network lines from HQ -->
+            <g stroke="rgba(198,151,47,.26)" stroke-width="1" fill="none" stroke-dasharray="3 5">
+              <path d="M404 130 L386 162 L356 228"/>
+              <path d="M404 130 L196 192"/>
+              <path d="M404 130 L506 58"/>
+              <path d="M404 130 L524 84"/>
+              <path d="M386 162 L402 172"/>
             </g>
             <g id="pinLayer"></g>
           </g>
@@ -109,10 +158,11 @@
         <div class="map-tooltip" id="mapTip"></div>
         <div class="crest-medallion" aria-hidden="true"><img src="assets/img/bcc-crest.png" alt=""></div>
       </div>
+      <div class="map-beyond" id="mapBeyond"></div>
       <div class="map-legend">
         <div class="lg"><span class="sw" style="background:#5FB98A"></span> Active chapter</div>
         <div class="lg"><span class="sw" style="background:var(--gold-hi)"></span> Forming now</div>
-        <div class="lg"><span class="sw" style="background:var(--slate-dim)"></span> Open territory</div>
+        <div class="lg"><span class="sw gold-star">★</span> Coalition HQ</div>
       </div>
     </div>
   </div>
@@ -148,6 +198,30 @@
           <li><span class="ic">✓</span> Conversation starts itself — you belong here</li>
           <li><span class="ic">✓</span> Every chapter is local, mapped, and yours to grow</li>
         </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WHY NETWORK / WHY US ===== -->
+<section class="sec" id="why">
+  <div class="wrap">
+    <div class="ed-row reveal">
+      <div class="ed-img"><img src="assets/img/why-network.jpeg" alt="Business professionals connecting at a Biz Connect Coalition event"><span class="ed-frame" aria-hidden="true"></span></div>
+      <div class="ed-copy">
+        <span class="eyebrow">Why network?</span>
+        <h2>Your next customer is <span class="gold-text">one warm introduction away.</span></h2>
+        <p>Most business still moves on trust — a name passed across a table, a "you should talk to my guy." Networking works; it's the cold, forced version of it that doesn't. Put the same people in a room they already belong in, and the referrals take care of themselves.</p>
+        <p class="ed-quote">Imagine: more business referrals, less uncomfortable conversation, and a networking experience you actually enjoy.</p>
+      </div>
+    </div>
+    <div class="ed-row flip reveal" data-d="1">
+      <div class="ed-img"><img src="assets/img/why-us.jpg" alt="A Biz Connect Coalition chapter gathering"><span class="ed-frame" aria-hidden="true"></span></div>
+      <div class="ed-copy">
+        <span class="eyebrow">Why us?</span>
+        <h2>Everyone serves the members. <span class="gold-text">Nobody serves their businesses.</span></h2>
+        <p>Schools hold job fairs for students. Veteran organizations run hiring events. Clubs promote their programs. But almost nobody builds for the members who <em>own businesses</em> — the ones quietly looking for customers, partners, and trusted vendors inside the community they already love.</p>
+        <p>That's the gap the Coalition fills. We turn the community you already belong to into the most productive room in your business life.</p>
       </div>
     </div>
   </div>
@@ -320,6 +394,7 @@
       <h2>One coalition, many communities.</h2>
       <p>The Coalition flexes to whatever your people already share. These are the chapter families — and they're just the start.</p>
     </div>
+    <div class="family-banner reveal"><img src="assets/img/bcc-family-banner.webp" alt="The Biz Connect Coalition family of brands" loading="lazy"></div>
     <div class="sub-brands">
       <div class="sub-brand reveal" data-d="1">
         <div class="sb-ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6 8-6s8 2 8 6"/></svg></div>

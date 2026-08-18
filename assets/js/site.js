@@ -120,6 +120,24 @@
     if(!layer||!window.BCC_CHAPTERS) return;
     var tip=document.getElementById(tipId), wrap=document.getElementById(wrapId);
     var ns="http://www.w3.org/2000/svg";
+
+    /* "Beyond the Valley" strip — chapters outside the mapped region */
+    var beyondMount=document.getElementById("mapBeyond");
+    if(beyondMount){
+      var beyond=BCC_CHAPTERS.filter(function(c){return c.beyond;});
+      if(beyond.length){
+        beyondMount.innerHTML='<span class="bl">Beyond the Valley:</span>'+
+          beyond.map(function(c){
+            return '<span class="bc" data-slug="'+c.slug+'" title="'+c.name+' — '+c.loc+'">'+c.beyond+' · '+c.name+'</span>';
+          }).join("");
+        beyondMount.querySelectorAll(".bc").forEach(function(chip){
+          chip.addEventListener("click",function(){
+            location.href="chapter.html?c="+encodeURIComponent(chip.getAttribute("data-slug"));
+          });
+        });
+      }
+    }
+
     BCC_CHAPTERS.filter(function(c){return c.pin;}).forEach(function(c,i){
       var g=document.createElementNS(ns,"g");
       g.setAttribute("class","pin-g");
