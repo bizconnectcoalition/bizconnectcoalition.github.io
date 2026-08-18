@@ -1,30 +1,32 @@
 /* ============================================================
    ALLIE — the Biz Connect Coalition guide — pose manifest
-   Each pose: { src, style: "cutout" | "circle", flip: true|false, alt }
-   ADD NEW POSES HERE: drop a transparent PNG into assets/img/allie/
-   and add a row — the widget picks it up automatically. Pose shown
-   is chosen per-page, then cycles with a crossfade over time.
+   Six full-body head-to-toe poses, generated from the original
+   Allie character reference (Gemini/Nano Banana, chroma-keyed).
+   Each pose: { src, flip: true|false, alt }
+   ADD NEW POSES: drop a transparent PNG into assets/img/allie/
+   and add a row — the widget picks it up automatically. The pose
+   shown is chosen per-page, then cycles with a crossfade.
    ============================================================ */
 window.ALLIE_POSES = [
-  { src:"assets/img/allie/allie-cutout.png",  style:"cutout", flip:false, alt:"Allie, the Biz Connect Coalition guide, smiling" },
-  { src:"assets/img/allie/allie-avatar.png",  style:"circle", flip:false, alt:"Allie smiling in a portrait circle" },
-  { src:"assets/img/allie/allie-cutout.png",  style:"cutout", flip:true,  alt:"Allie glancing the other way" },
-  { src:"assets/img/allie/allie-portrait.png",style:"circle", flip:false, alt:"Allie in a warm portrait" },
-  { src:"assets/img/allie/allie-cutout.png",  style:"cutout", flip:false, alt:"Allie ready to help" },
-  { src:"assets/img/allie/allie-avatar.png",  style:"circle", flip:true,  alt:"Allie looking over" }
+  { src:"assets/img/allie/allie-pose-wave.png",         flip:false, alt:"Allie waving hello" },
+  { src:"assets/img/allie/allie-pose-point.png",        flip:false, alt:"Allie pointing something out" },
+  { src:"assets/img/allie/allie-pose-welcome.png",      flip:false, alt:"Allie welcoming you with open arms" },
+  { src:"assets/img/allie/allie-pose-thumbsup.png",     flip:false, alt:"Allie giving a thumbs up" },
+  { src:"assets/img/allie/allie-pose-arms-crossed.png", flip:false, alt:"Allie standing confidently" },
+  { src:"assets/img/allie/allie-pose-clipboard.png",    flip:false, alt:"Allie holding a clipboard, ready to help" }
 ];
 
 /* which pose greets you on each page (index into ALLIE_POSES) */
 window.ALLIE_PAGE_POSE = {
-  "index.html": 0,            /* full-figure cutout */
-  "chapters.html": 1,         /* circle avatar */
-  "chapter.html": 2,          /* cutout, mirrored */
-  "start-a-chapter.html": 4,  /* cutout, ready */
-  "membership.html": 3,       /* warm portrait */
-  "facilitators.html": 0,
-  "faq.html": 5,              /* avatar, mirrored */
-  "contact.html": 3,
-  "portal.html": 1
+  "index.html": 0,            /* wave hello */
+  "chapters.html": 1,         /* pointing */
+  "chapter.html": 2,          /* welcoming */
+  "start-a-chapter.html": 5,  /* clipboard — application time */
+  "membership.html": 3,       /* thumbs up */
+  "facilitators.html": 4,     /* arms crossed, confident */
+  "faq.html": 1,
+  "contact.html": 0,
+  "portal.html": 5
 };
 
 /* what Allie says, per page */
