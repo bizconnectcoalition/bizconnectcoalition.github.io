@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Member Portal — Biz Connect Coalition</title>
+<meta name="description" content="The Biz Connect Coalition member portal — dashboards, directories, referrals, and event tools for members and facilitators. Preview what's coming online.">
+<link rel="icon" type="image/png" href="assets/img/bcc-crest.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Cormorant+Garamond:ital,wght@1,500;1,600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap nav">
+    <a class="brand" href="index.html">
+      <img src="assets/img/bcc-crest.png" alt="Biz Connect Coalition crest">
+      <span class="brand-word"><b>BIZ CONNECT</b><span>Coalition</span></span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="chapters.html">Chapters</a>
+      <a href="membership.html">Membership</a>
+      <a href="facilitators.html">Facilitators</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="portal.html" class="btn btn-ghost btn-sm">Member Portal</a>
+      <a href="start-a-chapter.html" class="btn btn-primary btn-sm">Start a Chapter</a>
+      <button class="menu-btn" id="menuBtn" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="Mobile">
+    <a href="index.html">Home</a>
+    <a href="chapters.html">Chapters</a>
+    <a href="membership.html">Membership</a>
+    <a href="facilitators.html">Facilitators</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html">Contact</a>
+    <a href="portal.html">Member Portal</a>
+    <a href="start-a-chapter.html" style="color:var(--gold-hi)">Start a Chapter →</a>
+  </nav>
+</header>
+
+<section class="page-hero">
+  <div class="hero-bg"><div class="mesh"></div><div class="hero-grid-bg"></div></div>
+  <div class="wrap" style="position:relative;z-index:2">
+    <div class="crumb reveal"><a href="index.html">Home</a><span>/</span><span>Member Portal</span></div>
+    <span class="eyebrow reveal">Members &amp; facilitators</span>
+    <h1 class="reveal" data-d="1">Your chapter, <span class="gold-text">in your pocket.</span></h1>
+    <p class="lead reveal" data-d="2">Member logins, dashboards, directories, referral tracking, and event tools are being connected to this site now. Here's a preview of what every member and facilitator gets.</p>
+    <div class="notice reveal" data-d="3" style="max-width:640px;margin-top:26px">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v5M12 16.5v.5"/></svg>
+      <span><b style="color:var(--gold-hi)">Member accounts are coming online.</b> Existing members: your login will be announced by your chapter facilitator. Until then, <a href="contact.html" style="color:var(--gold-hi);font-weight:600">contact us</a> with any account questions.</span>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="padding-top:30px">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Portal preview</span>
+      <h2>The facilitator dashboard.</h2>
+      <p>Everything a chapter host needs to run the room — memberships, approvals, events, and the referral ledger — in one place.</p>
+    </div>
+
+    <div class="tabs" data-tabs="portal" role="tablist">
+      <button class="tab active" data-tab="chapters" role="tab">Facilitating Chapters</button>
+      <button class="tab" data-tab="memberships" role="tab">Chapter Memberships</button>
+      <button class="tab" data-tab="referrals" role="tab">Referrals</button>
+      <button class="tab" data-tab="events" role="tab">Hosting Events</button>
+    </div>
+
+    <div class="tab-panel active" data-tab-panel="chapters" data-scope="portal">
+      <div class="table-scroll">
+        <table class="data-table">
+          <thead><tr><th>Chapter</th><th>Type</th><th>Approved</th><th>Activated</th><th>Total Members</th><th>Premium</th><th>Actions</th></tr></thead>
+          <tbody>
+            <tr><td style="color:var(--ivory)">Your Chapter</td><td>Member</td><td style="color:var(--green)">✓</td><td style="color:var(--green)">✓</td><td>—</td><td>—</td><td style="color:var(--gold-hi)">New event · Edit</td></tr>
+            <tr><td colspan="7"><div class="tbl-empty"><b>Your chapters appear here.</b>Approval status, activation, member counts, and premium totals — live, per chapter.</div></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="tab-panel" data-tab-panel="memberships" data-scope="portal">
+      <div class="table-scroll">
+        <table class="data-table">
+          <thead><tr><th>Chapter</th><th>Family</th><th>Your Tier</th><th>Directory Listing</th><th>Joined</th></tr></thead>
+          <tbody>
+            <tr><td colspan="5"><div class="tbl-empty"><b>Every chapter you belong to, in one list.</b>Your tier, your directory listing status, and quick links into each chapter page.</div></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="tab-panel" data-tab-panel="referrals" data-scope="portal">
+      <div class="table-scroll">
+        <table class="data-table">
+          <thead><tr><th>Source</th><th>Target</th><th>Description</th><th>Amount</th><th>Complete</th><th>Successful</th></tr></thead>
+          <tbody>
+            <tr><td colspan="6"><div class="tbl-empty"><b>Referrals, tracked to the dollar.</b>Log referrals between members, mark them complete, and watch the chapter's YTD total grow.</div></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-family:var(--mono);font-size:12px;color:var(--slate-dim);letter-spacing:.1em;margin-top:14px">TOTALS YTD: $0 · UPDATES LIVE AS REFERRALS COMPLETE</p>
+    </div>
+
+    <div class="tab-panel" data-tab-panel="events" data-scope="portal">
+      <div class="table-scroll">
+        <table class="data-table">
+          <thead><tr><th>Event</th><th>Type</th><th>Date</th><th>Registered / Guests</th></tr></thead>
+          <tbody>
+            <tr><td colspan="4"><div class="tbl-empty"><b>Your hosted events and headcounts.</b>Times adjust automatically to each member's local timezone. RSVPs and guest counts update as they come in.</div></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec band">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="eyebrow two">Also in the portal</span>
+      <h2>Built for members, not just facilitators.</h2>
+    </div>
+    <div class="info-cards">
+      <div class="info-card reveal" data-d="1">
+        <h4>Your profile &amp; business listing</h4>
+        <p>Personal details, your business details, and the profile photo that shows up beside your directory listing — including a veteran-owned flag if it applies.</p>
+      </div>
+      <div class="info-card reveal" data-d="2">
+        <h4>The premium directory</h4>
+        <p>Search every chapter's directory by business name, category, state, veteran-owned status, and more.</p>
+      </div>
+      <div class="info-card reveal" data-d="3">
+        <h4>Event registration</h4>
+        <p>RSVP to chapter events in two taps, bring a guest, and (as a Premium member) collect the attendee list afterward.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="final" style="padding:80px 0">
+  <div class="bg"></div>
+  <div class="wrap" style="position:relative;z-index:2">
+    <h2 class="reveal" style="font-size:clamp(28px,3.6vw,42px)">Want the dashboard? <span class="gold-text">Get in the room first.</span></h2>
+    <div class="hero-cta reveal" data-d="1" style="margin-top:26px">
+      <a href="chapters.html" class="btn btn-primary">Find a Chapter</a>
+      <a href="membership.html" class="btn btn-ghost">See membership tiers</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <img src="assets/img/bcc-crest.png" alt="Biz Connect Coalition crest">
+        <p>Through an integrative business development ecosystem, we provide an incubator for small business expansion, innovation and creation.</p>
+      </div>
+      <div class="foot-col">
+        <h5>Explore</h5>
+        <a href="chapters.html">Chapter list</a>
+        <a href="membership.html">Membership</a>
+        <a href="facilitators.html">Facilitators</a>
+        <a href="faq.html">FAQ</a>
+      </div>
+      <div class="foot-col">
+        <h5>Get involved</h5>
+        <a href="start-a-chapter.html">Start a chapter</a>
+        <a href="chapters.html">Find a chapter</a>
+        <a href="portal.html">Member portal</a>
+        <a href="contact.html">Contact us</a>
+      </div>
+      <div class="foot-col">
+        <h5>The family</h5>
+        <a href="chapters.html?f=member">Member Biz Connect</a>
+        <a href="chapters.html?f=alumni">Alumni Biz Connect</a>
+        <a href="chapters.html?f=veteran">Veteran Biz Connect</a>
+        <a href="chapters.html?f=heroes">Heroes Biz Connect</a>
+      </div>
+    </div>
+    <div class="foot-base">
+      <p>© 2026 All Rights Reserved | Biz Connect Coalition</p>
+      <p class="fam">Part of the <b>DMJ Ventures</b> ecosystem</p>
+    </div>
+  </div>
+</footer>
+
+<script src="data/chapters.js"></script>
+<script src="assets/js/site.js"></script>
+</body>
+</html>

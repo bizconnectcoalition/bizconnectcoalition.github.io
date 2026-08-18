@@ -1,0 +1,27 @@
+<svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Nexus, the Biz Connect Coalition mascot">
+  <defs>
+    <linearGradient id="nx_body" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#22406C"/><stop offset="1" stop-color="#0E1B33"/>
+    </linearGradient>
+    <linearGradient id="nx_gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#EBD08A"/><stop offset="0.5" stop-color="#C6972F"/><stop offset="1" stop-color="#9C7521"/>
+    </linearGradient>
+    <filter id="nx_soft" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="7" stdDeviation="11" flood-color="#0B1526" flood-opacity="0.38"/>
+    </filter>
+  </defs>
+  <g stroke="url(#nx_gold)" stroke-width="2.4" opacity="0.95">
+    <line x1="52" y1="58" x2="98" y2="98"/><line x1="188" y1="58" x2="142" y2="98"/><line x1="120" y1="24" x2="120" y2="72"/>
+  </g>
+  <g fill="url(#nx_gold)">
+    <circle cx="52" cy="58" r="7.5"/><circle cx="188" cy="58" r="7.5"/><circle cx="120" cy="22" r="6.5"/>
+  </g>
+  <g filter="url(#nx_soft)">
+    <path d="M120 64 C170 64 198 104 198 150 C198 198 166 216 120 216 C74 216 42 198 42 150 C42 104 70 64 120 64 Z" fill="url(#nx_body)"/>
+    <circle cx="120" cy="152" r="21" fill="none" stroke="url(#nx_gold)" stroke-width="4.5"/>
+    <circle cx="120" cy="152" r="6.5" fill="url(#nx_gold)"/>
+    <circle cx="100" cy="120" r="10.5" fill="#F7F6F2"/><circle cx="140" cy="120" r="10.5" fill="#F7F6F2"/>
+    <circle cx="102.5" cy="122" r="4.6" fill="#0E1B33"/><circle cx="142.5" cy="122" r="4.6" fill="#0E1B33"/>
+    <path d="M103 139 Q120 152 137 139" fill="none" stroke="#F7F6F2" stroke-width="3.6" stroke-linecap="round"/>
+  </g>
+</svg>

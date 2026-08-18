@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapter List — Biz Connect Coalition</title>
+<meta name="description" content="Browse Biz Connect Coalition chapters — gyms, alumni associations, veteran groups, first responders, and community coalitions. Find yours, or start one where there's none.">
+<link rel="icon" type="image/png" href="assets/img/bcc-crest.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Cormorant+Garamond:ital,wght@1,500;1,600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap nav">
+    <a class="brand" href="index.html">
+      <img src="assets/img/bcc-crest.png" alt="Biz Connect Coalition crest">
+      <span class="brand-word"><b>BIZ CONNECT</b><span>Coalition</span></span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="chapters.html">Chapters</a>
+      <a href="membership.html">Membership</a>
+      <a href="facilitators.html">Facilitators</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="portal.html" class="btn btn-ghost btn-sm">Member Portal</a>
+      <a href="start-a-chapter.html" class="btn btn-primary btn-sm">Start a Chapter</a>
+      <button class="menu-btn" id="menuBtn" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="Mobile">
+    <a href="index.html">Home</a>
+    <a href="chapters.html">Chapters</a>
+    <a href="membership.html">Membership</a>
+    <a href="facilitators.html">Facilitators</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html">Contact</a>
+    <a href="portal.html">Member Portal</a>
+    <a href="start-a-chapter.html" style="color:var(--gold-hi)">Start a Chapter →</a>
+  </nav>
+</header>
+
+<section class="page-hero">
+  <div class="hero-bg"><div class="mesh"></div><div class="hero-grid-bg"></div></div>
+  <div class="wrap" style="position:relative;z-index:2">
+    <div class="crumb reveal"><a href="index.html">Home</a><span>/</span><span>Chapters</span></div>
+    <span class="eyebrow reveal">Networking redefined</span>
+    <h1 class="reveal" data-d="1">The chapter list.</h1>
+    <p class="lead reveal" data-d="2">We provide unique networking experiences built on communities that already exist. Search the list, filter by family, and find your people — or claim open territory and start your own.</p>
+  </div>
+</section>
+
+<section class="sec" style="padding-top:24px">
+  <div class="wrap">
+    <div class="search-bar reveal">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input type="text" id="chapterSearch" placeholder="Search by name, city, or state…" aria-label="Search chapters">
+    </div>
+    <div class="filters reveal" data-d="1" role="tablist" aria-label="Filter chapters by family">
+      <button class="filter active" data-f="all">All families</button>
+      <button class="filter" data-f="member">Member</button>
+      <button class="filter" data-f="alumni">Alumni</button>
+      <button class="filter" data-f="veteran">Veteran</button>
+      <button class="filter" data-f="heroes">Heroes</button>
+      <button class="filter" data-f="circle">Circles</button>
+    </div>
+    <p style="font-family:var(--mono);font-size:12px;color:var(--slate-dim);letter-spacing:.1em;margin-bottom:22px" id="countLine"></p>
+    <div class="chapters" id="chapterGrid"></div>
+    <div class="empty-hint reveal" style="margin-top:36px">
+      <img class="m" src="assets/img/nexus-mascot.svg" alt="Nexus, the Biz Connect Coalition mascot">
+      <p><b>Don't see your chapter?</b> If your gym, alumni group, congregation, unit, or club isn't listed, that's your opening. Start the chapter, host the room, and own the pin.</p>
+    </div>
+    <div style="display:flex;justify-content:center;margin-top:30px">
+      <a href="start-a-chapter.html" class="btn btn-primary">Start a Chapter
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <img src="assets/img/bcc-crest.png" alt="Biz Connect Coalition crest">
+        <p>Through an integrative business development ecosystem, we provide an incubator for small business expansion, innovation and creation.</p>
+      </div>
+      <div class="foot-col">
+        <h5>Explore</h5>
+        <a href="chapters.html">Chapter list</a>
+        <a href="membership.html">Membership</a>
+        <a href="facilitators.html">Facilitators</a>
+        <a href="faq.html">FAQ</a>
+      </div>
+      <div class="foot-col">
+        <h5>Get involved</h5>
+        <a href="start-a-chapter.html">Start a chapter</a>
+        <a href="chapters.html">Find a chapter</a>
+        <a href="portal.html">Member portal</a>
+        <a href="contact.html">Contact us</a>
+      </div>
+      <div class="foot-col">
+        <h5>The family</h5>
+        <a href="chapters.html?f=member">Member Biz Connect</a>
+        <a href="chapters.html?f=alumni">Alumni Biz Connect</a>
+        <a href="chapters.html?f=veteran">Veteran Biz Connect</a>
+        <a href="chapters.html?f=heroes">Heroes Biz Connect</a>
+      </div>
+    </div>
+    <div class="foot-base">
+      <p>© 2026 All Rights Reserved | Biz Connect Coalition</p>
+      <p class="fam">Part of the <b>DMJ Ventures</b> ecosystem</p>
+    </div>
+  </div>
+</footer>
+
+<script src="data/chapters.js"></script>
+<script src="assets/js/site.js"></script>
+<script>
+(function(){
+  var activeFamily="all", query="";
+  var params=new URLSearchParams(location.search);
+  if(params.get("f")){ activeFamily=params.get("f"); }
+
+  function apply(){
+    var list=BCC_CHAPTERS.filter(function(c){
+      var okF=activeFamily==="all"||c.family===activeFamily;
+      var q=query.trim().toLowerCase();
+      var okQ=!q||(c.name+" "+c.loc+" "+BCC.familyLabel(c.family)).toLowerCase().indexOf(q)>=0;
+      return okF&&okQ;
+    });
+    var active=list.filter(function(c){return c.status==="active";});
+    var rest=list.filter(function(c){return c.status!=="active";});
+    BCC.renderChapters("chapterGrid", active.concat(rest));
+    var cl=document.getElementById("countLine");
+    cl.textContent=list.length+" OF "+BCC_CHAPTERS.length+" CHAPTERS SHOWN";
+  }
+
+  document.querySelectorAll(".filter").forEach(function(btn){
+    if(btn.getAttribute("data-f")===activeFamily) {
+      document.querySelectorAll(".filter").forEach(function(b){b.classList.remove("active");});
+      btn.classList.add("active");
+    }
+    btn.addEventListener("click",function(){
+      document.querySelectorAll(".filter").forEach(function(b){b.classList.remove("active");});
+      btn.classList.add("active");
+      activeFamily=btn.getAttribute("data-f");
+      apply();
+    });
+  });
+  document.getElementById("chapterSearch").addEventListener("input",function(e){
+    query=e.target.value; apply();
+  });
+  apply();
+})();
+</script>
+</body>
+</html>

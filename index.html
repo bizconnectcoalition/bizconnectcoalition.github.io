@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Biz Connect Coalition — Business Networking Redefined</title>
+<meta name="description" content="Biz Connect Coalition unites business professionals through communities they already belong to — gyms, alumni associations, veteran groups, congregations. Attend free. Start a chapter where you live.">
+<link rel="icon" type="image/png" href="assets/img/bcc-crest.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Cormorant+Garamond:ital,wght@1,500;1,600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap nav">
+    <a class="brand" href="index.html">
+      <img src="assets/img/bcc-crest.png" alt="Biz Connect Coalition crest">
+      <span class="brand-word"><b>BIZ CONNECT</b><span>Coalition</span></span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="chapters.html">Chapters</a>
+      <a href="membership.html">Membership</a>
+      <a href="facilitators.html">Facilitators</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="portal.html" class="btn btn-ghost btn-sm">Member Portal</a>
+      <a href="start-a-chapter.html" class="btn btn-primary btn-sm">Start a Chapter</a>
+      <button class="menu-btn" id="menuBtn" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="Mobile">
+    <a href="index.html">Home</a>
+    <a href="chapters.html">Chapters</a>
+    <a href="membership.html">Membership</a>
+    <a href="facilitators.html">Facilitators</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html">Contact</a>
+    <a href="portal.html">Member Portal</a>
+    <a href="start-a-chapter.html" style="color:var(--gold-hi)">Start a Chapter →</a>
+  </nav>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-bg">
+    <div class="mesh"></div>
+    <div class="hero-grid-bg"></div>
+  </div>
+  <div class="hero-frame" aria-hidden="true"></div>
+  <div class="wrap hero-inner">
+    <div class="hero-copy">
+      <span class="eyebrow reveal">Business Networking Redefined</span>
+      <span class="kicker reveal" data-d="1">Built on what you already share.</span>
+      <h1 class="reveal" data-d="1">Start a chapter <span class="drift">where you live.</span></h1>
+      <p class="lead reveal" data-d="2">Biz Connect Coalition maps real business communities to real places. Host a free monthly chapter built around something you already share — a gym, an alma mater, a unit, a congregation — and we handle the rest. Find your people on the map, or light up a pin where there's none.</p>
+      <div class="hero-cta reveal" data-d="3">
+        <a href="start-a-chapter.html" class="btn btn-primary">Start a Chapter
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="chapters.html" class="btn btn-ghost">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.5-7-11a7 7 0 0 1 14 0c0 4.5-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          Find a Chapter
+        </a>
+      </div>
+      <div class="hero-meta reveal" data-d="4">
+        <div class="hm"><b data-count="38" data-suffix="+">0</b><span>Communities in the network</span></div>
+        <div class="hm"><b data-count="5" data-suffix="">0</b><span>Chapter families</span></div>
+        <div class="hm"><b>$0</b><span>To attend, always</span></div>
+      </div>
+    </div>
+
+    <div class="map-card reveal" data-d="2">
+      <div class="map-head">
+        <div class="mt"><span class="live-dot"></span> The chapter map</div>
+        <div class="map-chip">Coast to coast</div>
+      </div>
+      <div class="map-svg-wrap" id="mapWrap">
+        <svg id="regionMap" viewBox="0 0 600 380" role="img" aria-label="Stylized map with glowing chapter pins">
+          <defs>
+            <radialGradient id="landGrad" cx="50%" cy="35%" r="80%">
+              <stop offset="0" stop-color="#1B3160"/><stop offset="1" stop-color="#0E1F40"/>
+            </radialGradient>
+            <filter id="pinGlow" x="-80%" y="-80%" width="260%" height="260%">
+              <feGaussianBlur stdDeviation="3.4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+          </defs>
+          <g class="map-drift">
+            <path d="M70 120 C110 92 150 96 190 88 C230 80 250 60 300 66 C350 72 380 60 430 74 C480 88 520 96 540 130 C556 158 548 190 528 214 C512 234 522 262 500 286 C476 312 440 300 402 306 C360 313 340 336 300 330 C258 324 236 342 196 332 C158 322 128 330 100 306 C74 284 84 254 66 228 C50 204 44 176 56 152 C62 138 62 130 70 120 Z"
+              fill="url(#landGrad)" stroke="rgba(198,151,47,.32)" stroke-width="1.4"/>
+            <g fill="rgba(155,166,188,.16)">
+              <circle cx="140" cy="150" r="1.4"/><circle cx="200" cy="140" r="1.4"/><circle cx="260" cy="150" r="1.4"/><circle cx="320" cy="140" r="1.4"/><circle cx="380" cy="150" r="1.4"/><circle cx="440" cy="160" r="1.4"/>
+              <circle cx="160" cy="200" r="1.4"/><circle cx="230" cy="200" r="1.4"/><circle cx="300" cy="200" r="1.4"/><circle cx="370" cy="205" r="1.4"/><circle cx="440" cy="210" r="1.4"/>
+              <circle cx="150" cy="250" r="1.4"/><circle cx="220" cy="260" r="1.4"/><circle cx="300" cy="255" r="1.4"/><circle cx="380" cy="260" r="1.4"/><circle cx="450" cy="255" r="1.4"/>
+            </g>
+            <g stroke="rgba(198,151,47,.28)" stroke-width="1" fill="none" stroke-dasharray="3 5">
+              <path d="M150 170 L250 140 L360 200 L460 160"/>
+              <path d="M180 250 L300 210 L420 250"/>
+              <path d="M250 140 L300 210"/>
+              <path d="M360 200 L300 210"/>
+            </g>
+            <g id="pinLayer"></g>
+          </g>
+        </svg>
+        <div class="map-tooltip" id="mapTip"></div>
+        <div class="crest-medallion" aria-hidden="true"><img src="assets/img/bcc-crest.png" alt=""></div>
+      </div>
+      <div class="map-legend">
+        <div class="lg"><span class="sw" style="background:#5FB98A"></span> Active chapter</div>
+        <div class="lg"><span class="sw" style="background:var(--gold-hi)"></span> Forming now</div>
+        <div class="lg"><span class="sw" style="background:var(--slate-dim)"></span> Open territory</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider-seal" aria-hidden="true"><span class="ln"></span><span class="dot"></span><span class="ln rev"></span></div>
+
+<!-- ===== COMMONALITY ===== -->
+<section class="sec" id="difference">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">The Coalition difference</span>
+      <h2>The awkward part of networking? <span class="gold-text">We removed it.</span></h2>
+      <p>Cold rooms of strangers exchanging cards is exhausting. Every Biz Connect chapter is anchored to a commonality — an alma mater, a firehouse, a fitness community, a congregation — so the ice is already broken before you walk in.</p>
+    </div>
+    <div class="compare">
+      <div class="col them reveal" data-d="1">
+        <span class="tag">The old way</span>
+        <h3>Generic networking &amp; BNI-style rooms</h3>
+        <ul>
+          <li><span class="ic">—</span> Strangers with nothing in common but the room</li>
+          <li><span class="ic">—</span> Rigid, high-pressure, pay-to-attend seats</li>
+          <li><span class="ic">—</span> Awkward small talk before any trust exists</li>
+          <li><span class="ic">—</span> One-size-fits-all chapters, no local flavor</li>
+        </ul>
+      </div>
+      <div class="col us reveal" data-d="2">
+        <span class="tag">The Coalition way</span>
+        <h3>Communities that already do business together</h3>
+        <ul>
+          <li><span class="ic">✓</span> Members share a real bond from day one</li>
+          <li><span class="ic">✓</span> Free monthly in-person events, warm by design</li>
+          <li><span class="ic">✓</span> Conversation starts itself — you belong here</li>
+          <li><span class="ic">✓</span> Every chapter is local, mapped, and yours to grow</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== HOW IT WORKS ===== -->
+<section class="sec band" id="how">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="eyebrow two">Charter your chapter</span>
+      <h2>Four steps from idea to first event.</h2>
+      <p>You bring the community and the room. We bring the tools, the training, and a chapter page on the map.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal" data-d="1">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 21s-7-6.5-7-11a7 7 0 0 1 14 0c0 4.5-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+        <h3>Claim your pin</h3>
+        <p>Pick your city and your commonality. If the territory's open, it's yours — your chapter joins the map.</p>
+      </div>
+      <div class="step reveal" data-d="2">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg></div>
+        <h3>Set your first date</h3>
+        <p>Choose a venue and a monthly cadence. Your chapter page starts collecting members the moment it's live.</p>
+      </div>
+      <div class="step reveal" data-d="3">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M4 4h16v12H5.2L4 18V4Z"/><path d="M8 9h8M8 12h5"/></svg></div>
+        <h3>We run the ops</h3>
+        <p>Invites, reminders, member tools, and attendee lists are handled for you. You just show up and host.</p>
+      </div>
+      <div class="step reveal" data-d="4">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 2v6M12 22v-4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h6M22 12h-4"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <h3>Grow &amp; earn</h3>
+        <p>As members upgrade, you share the revenue. Your pin glows brighter as the community around it grows.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CHAPTERS PREVIEW ===== -->
+<section class="sec" id="chapters">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">One coalition, many communities</span>
+      <h2>Find your people. <span class="gold-text">Charter your bond.</span></h2>
+      <p>From the Newtown Athletic Club to veteran groups, alumni associations to neighborhood coalitions — these communities are already on the map.</p>
+    </div>
+    <div class="chapters" id="chapterPreview"></div>
+    <div class="empty-hint reveal">
+      <img class="m" src="assets/img/nexus-mascot.svg" alt="Nexus, the Biz Connect Coalition mascot">
+      <p><b>Don't see your community?</b> Open territory means first-mover advantage. Facilitators who launch a new chapter get featured placement, done-for-you tools, and a head start on revenue share.</p>
+    </div>
+    <div style="display:flex;justify-content:center;margin-top:34px" class="reveal">
+      <a href="chapters.html" class="btn btn-ghost">Browse all chapters
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MEMBERSHIP ===== -->
+<section class="sec band" id="membership">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="eyebrow two">The membership ladder</span>
+      <h2>Attend for free. <span class="gold-text">Ascend when you're ready.</span></h2>
+      <p>Core membership costs nothing, forever. Move up when you want the contacts, the directory listing, and the table.</p>
+    </div>
+    <div class="tier-grid">
+      <div class="tier reveal" data-d="1">
+        <h3>Core</h3>
+        <div class="price">Free<small> forever</small></div>
+        <p class="tier-sub">Attend any chapter event and meet your local community.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg> Free monthly in-person events</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg> Chapter updates from your facilitator</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg> View the premium member directory</li>
+        </ul>
+        <a href="chapters.html" class="btn btn-ghost">Find a Chapter</a>
+      </div>
+      <div class="tier feature reveal" data-d="2">
+        <span class="ribbon">Most popular</span>
+        <h3>Premium</h3>
+        <div class="price">$195<small>/year</small></div>
+        <p class="tier-sub">Get listed, get the room, and get the contact list.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg> Everything in Core</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg> Listing in the premium member directory</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg> Event attendee contact lists</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg> Member dashboard &amp; referral tracking</li>
+        </ul>
+        <a href="membership.html" class="btn btn-primary">Go Premium</a>
+      </div>
+      <div class="tier reveal" data-d="3">
+        <h3>Circles</h3>
+        <div class="price">$399<small>/year</small></div>
+        <p class="tier-sub">Invitation-only. One member per industry. Referrals first.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg> Everything in Premium</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg> One seat per industry, locked</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg> Referral-focused meeting cadence</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg> A fraction of the cost of BNI or LeTip</li>
+        </ul>
+        <a href="membership.html#circles" class="btn btn-ghost">Request a Seat</a>
+      </div>
+      <div class="tier reveal" data-d="4">
+        <h3>Elite Mastermind</h3>
+        <div class="price">Invitation</div>
+        <p class="tier-sub">A curated table for established business owners.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg> Curated peer advisory table</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg> Private dinners &amp; retreats</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg> Deal flow among top operators</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg> Invitation only</li>
+        </ul>
+        <a href="contact.html" class="btn btn-ghost">Apply for Invite</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FACILITATOR ===== -->
+<section class="sec" id="facilitator">
+  <div class="wrap facil-inner">
+    <div class="reveal">
+      <span class="eyebrow">Become a facilitator</span>
+      <h2 style="font-size:clamp(30px,3.6vw,44px);margin:16px 0 14px">Host the room. Own the pin. <span class="gold-text">Share the upside.</span></h2>
+      <p style="font-size:17px;color:var(--ivory-dim)">Facilitators are the heart of the Coalition. You get a free premium membership, a done-for-you chapter, and a real share of the revenue your community generates — while we handle the logistics.</p>
+      <div class="facil-list">
+        <div class="facil-item">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 2 4 6v6c0 5 3.5 8 8 10 4.5-2 8-5 8-10V6l-8-4Z"/><path d="M9 12l2 2 4-4"/></svg></div>
+          <div><h4>Free premium membership</h4><p>Your $195/year tier, on the house, for as long as you host.</p></div>
+        </div>
+        <div class="facil-item">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18"/><circle cx="8" cy="13" r="1.3"/></svg></div>
+          <div><h4>Your own chapter page</h4><p>A branded, mapped page with a member directory that grows as your community joins.</p></div>
+        </div>
+        <div class="facil-item">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M4 12a8 8 0 0 1 16 0M8 12a4 4 0 0 1 8 0"/><path d="M12 12v6"/></svg></div>
+          <div><h4>Done-for-you administration</h4><p>Premium listings, admin tools, resources, training, and support — provided free of charge.</p></div>
+        </div>
+        <div class="facil-item">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+          <div><h4>Revenue share on your chapter</h4><p>Earn every time a member of your community upgrades to Premium or Circles.</p></div>
+        </div>
+      </div>
+      <div style="margin-top:32px">
+        <a href="facilitators.html" class="btn btn-primary">Learn about facilitating
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="earn-card reveal" data-d="2">
+      <div class="ec-label">Illustrative facilitator earnings</div>
+      <div class="earn-big">$9,360<span style="font-size:20px;color:var(--slate);-webkit-text-fill-color:var(--slate)">/yr</span></div>
+      <div class="earn-sub">Example: a healthy chapter of 80 active members with a typical upgrade mix and revenue share applied. Your numbers will vary.</div>
+      <div class="earn-row"><span>Active members</span><b>80</b></div>
+      <div class="earn-row"><span>Upgrade to Premium / Circles</span><b>~30%</b></div>
+      <div class="earn-row"><span>Avg. revenue share per upgrade</span><b>$390</b></div>
+      <div class="earn-row"><span>Monthly events hosted</span><b>12 / yr</b></div>
+      <p class="earn-note">Illustrative figures only — not a guarantee of earnings.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SUB-BRANDS ===== -->
+<section class="sec band" id="family">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="eyebrow two">The Biz Connect family</span>
+      <h2>One coalition, many communities.</h2>
+      <p>The Coalition flexes to whatever your people already share. These are the chapter families — and they're just the start.</p>
+    </div>
+    <div class="sub-brands">
+      <div class="sub-brand reveal" data-d="1">
+        <div class="sb-ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6 8-6s8 2 8 6"/></svg></div>
+        <h4>Member Biz Connect</h4>
+        <p>For gyms, clubs, and associations — turn a membership into a network.</p>
+      </div>
+      <div class="sub-brand reveal" data-d="2">
+        <div class="sb-ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/></svg></div>
+        <h4>Alumni Biz Connect</h4>
+        <p>Same colors, same halls — reconnect your alumni network around real deals.</p>
+      </div>
+      <div class="sub-brand reveal" data-d="3">
+        <div class="sb-ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 2l2.5 5 5.5.8-4 3.9 1 5.5L12 20l-5 2.6 1-5.5-4-3.9 5.5-.8L12 2Z"/></svg></div>
+        <h4>Veteran Biz Connect</h4>
+        <p>For those who served — building business among brothers and sisters in arms.</p>
+      </div>
+      <div class="sub-brand reveal" data-d="4">
+        <div class="sb-ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 2v4M12 2a6 6 0 0 0-6 6c0 4 6 12 6 12s6-8 6-12a6 6 0 0 0-6-6Z"/></svg></div>
+        <h4>Heroes Biz Connect</h4>
+        <p>First responders — firefighters, police, EMS — doing business shoulder to shoulder.</p>
+      </div>
+    </div>
+    <div class="commonality-marquee reveal">
+      <span class="cm-chip">Gyms</span>
+      <span class="cm-chip">Churches</span>
+      <span class="cm-chip">Alumni associations</span>
+      <span class="cm-chip">Veterans</span>
+      <span class="cm-chip">First responders</span>
+      <span class="cm-chip">Country clubs</span>
+      <span class="cm-chip">Youth sports leagues</span>
+      <span class="cm-chip">Women's &amp; men's groups</span>
+      <span class="cm-chip">Motorcycle clubs</span>
+      <span class="cm-chip">Chambers</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== VISION ===== -->
+<section class="sec vision">
+  <svg class="constellation-bg" viewBox="0 0 1200 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <g stroke="rgba(198,151,47,.22)" stroke-width="1" fill="none">
+      <path d="M120 120 L340 200 L560 140 L780 240 L1020 160"/>
+      <path d="M200 380 L420 300 L640 360 L900 300 L1100 380"/>
+      <path d="M340 200 L420 300M780 240 L900 300"/>
+    </g>
+    <g fill="#E7C878">
+      <circle cx="120" cy="120" r="3"/><circle cx="340" cy="200" r="4"/><circle cx="560" cy="140" r="3"/>
+      <circle cx="780" cy="240" r="4"/><circle cx="1020" cy="160" r="3"/><circle cx="200" cy="380" r="3"/>
+      <circle cx="420" cy="300" r="4"/><circle cx="640" cy="360" r="3"/><circle cx="900" cy="300" r="4"/><circle cx="1100" cy="380" r="3"/>
+    </g>
+  </svg>
+  <div class="wrap">
+    <span class="eyebrow two reveal" style="justify-content:center">Our vision</span>
+    <h2 class="reveal" data-d="1">We are building <span class="gold-text">the in-person layer</span> of professional networking.</h2>
+    <p class="reveal" data-d="2">Schools hold job fairs for students. Veteran organizations run hiring events. Clubs promote their programs. But nobody builds for the members who own businesses. We do.</p>
+    <p class="mission reveal" data-d="3">"Through an integrative business development ecosystem, we provide an incubator for small business expansion, innovation and creation."</p>
+  </div>
+</section>
+
+<!-- ===== FINAL CTA ===== -->
+<section class="final">
+  <div class="bg"></div>
+  <div class="wrap" style="position:relative;z-index:2">
+    <span class="eyebrow two reveal" style="justify-content:center">Your charter awaits</span>
+    <h2 class="reveal" data-d="1">Start a chapter. <span class="gold-text">Build your Coalition.</span></h2>
+    <p class="reveal" data-d="2">Your community is already meeting. Give it a map pin, a directory, and a reason to do business together.</p>
+    <div class="hero-cta reveal" data-d="3">
+      <a href="start-a-chapter.html" class="btn btn-primary">Start a Chapter
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="contact.html" class="btn btn-ghost">Talk to us first</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <img src="assets/img/bcc-crest.png" alt="Biz Connect Coalition crest">
+        <p>Through an integrative business development ecosystem, we provide an incubator for small business expansion, innovation and creation.</p>
+      </div>
+      <div class="foot-col">
+        <h5>Explore</h5>
+        <a href="chapters.html">Chapter list</a>
+        <a href="membership.html">Membership</a>
+        <a href="facilitators.html">Facilitators</a>
+        <a href="faq.html">FAQ</a>
+      </div>
+      <div class="foot-col">
+        <h5>Get involved</h5>
+        <a href="start-a-chapter.html">Start a chapter</a>
+        <a href="chapters.html">Find a chapter</a>
+        <a href="portal.html">Member portal</a>
+        <a href="contact.html">Contact us</a>
+      </div>
+      <div class="foot-col">
+        <h5>The family</h5>
+        <a href="chapters.html?f=member">Member Biz Connect</a>
+        <a href="chapters.html?f=alumni">Alumni Biz Connect</a>
+        <a href="chapters.html?f=veteran">Veteran Biz Connect</a>
+        <a href="chapters.html?f=heroes">Heroes Biz Connect</a>
+      </div>
+    </div>
+    <div class="foot-base">
+      <p>© 2026 All Rights Reserved | Biz Connect Coalition</p>
+      <p class="fam">Part of the <b>DMJ Ventures</b> ecosystem</p>
+    </div>
+  </div>
+</footer>
+
+<script src="data/chapters.js"></script>
+<script src="assets/js/site.js"></script>
+<script>
+  // homepage: drop the map pins + render 6 featured chapters
+  BCC.dropPins("pinLayer","mapTip","mapWrap");
+  var featured=BCC_CHAPTERS.filter(function(c){return c.status==="active";})
+    .concat(BCC_CHAPTERS.filter(function(c){return c.status!=="active";}))
+    .slice(0,6);
+  BCC.renderChapters("chapterPreview", featured);
+</script>
+</body>
+</html>

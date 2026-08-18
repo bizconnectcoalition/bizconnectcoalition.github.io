@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Start a Chapter — Biz Connect Coalition</title>
+<meta name="description" content="Charter a Biz Connect Coalition chapter around your gym, alumni group, unit, congregation, or club. Free premium membership, done-for-you tools, and revenue share for facilitators.">
+<link rel="icon" type="image/png" href="assets/img/bcc-crest.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Cormorant+Garamond:ital,wght@1,500;1,600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap nav">
+    <a class="brand" href="index.html">
+      <img src="assets/img/bcc-crest.png" alt="Biz Connect Coalition crest">
+      <span class="brand-word"><b>BIZ CONNECT</b><span>Coalition</span></span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="chapters.html">Chapters</a>
+      <a href="membership.html">Membership</a>
+      <a href="facilitators.html">Facilitators</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="portal.html" class="btn btn-ghost btn-sm">Member Portal</a>
+      <a href="start-a-chapter.html" class="btn btn-primary btn-sm">Start a Chapter</a>
+      <button class="menu-btn" id="menuBtn" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="Mobile">
+    <a href="index.html">Home</a>
+    <a href="chapters.html">Chapters</a>
+    <a href="membership.html">Membership</a>
+    <a href="facilitators.html">Facilitators</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html">Contact</a>
+    <a href="portal.html">Member Portal</a>
+    <a href="start-a-chapter.html" style="color:var(--gold-hi)">Start a Chapter →</a>
+  </nav>
+</header>
+
+<section class="page-hero">
+  <div class="hero-bg"><div class="mesh"></div><div class="hero-grid-bg"></div></div>
+  <div class="wrap" style="position:relative;z-index:2">
+    <div class="crumb reveal"><a href="index.html">Home</a><span>/</span><span>Start a Chapter</span></div>
+    <span class="eyebrow reveal">Your charter awaits</span>
+    <h1 class="reveal" data-d="1">Charter your chapter.</h1>
+    <p class="lead reveal" data-d="2">Three short steps. Tell us who you are, tell us about your community, and we'll reach out to walk you through the launch — tools, training, and support included, free of charge.</p>
+  </div>
+</section>
+
+<section class="sec" style="padding-top:20px">
+  <div class="wrap" style="display:grid;grid-template-columns:1fr 340px;gap:44px;align-items:start">
+    <div class="form-card reveal" id="charterCard">
+      <div class="form-steps">
+        <span class="fs on" id="fs1"><span class="n">1</span> About you</span>
+        <span class="fs" id="fs2"><span class="n">2</span> Your community</span>
+        <span class="fs" id="fs3"><span class="n">3</span> Review &amp; submit</span>
+      </div>
+
+      <!-- STEP 1 -->
+      <div id="step1">
+        <div class="form-grid">
+          <div class="field">
+            <label for="fName">First name <b>*</b></label>
+            <input id="fName" type="text" autocomplete="given-name">
+            <span class="err">Please enter your first name.</span>
+          </div>
+          <div class="field">
+            <label for="lName">Last name <b>*</b></label>
+            <input id="lName" type="text" autocomplete="family-name">
+            <span class="err">Please enter your last name.</span>
+          </div>
+          <div class="field">
+            <label for="email">Email <b>*</b></label>
+            <input id="email" type="email" autocomplete="email">
+            <span class="err">Please enter a valid email address.</span>
+          </div>
+          <div class="field">
+            <label for="phone">Phone</label>
+            <input id="phone" type="tel" autocomplete="tel" placeholder="(555) 555-5555">
+            <span class="err"></span>
+          </div>
+          <div class="field full">
+            <label for="bio">Tell us a little about yourself</label>
+            <textarea id="bio" placeholder="What do you do, and what's your connection to the community you want to charter?"></textarea>
+          </div>
+        </div>
+        <div class="form-nav">
+          <span></span>
+          <button class="btn btn-primary" id="next1">Next: your community
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- STEP 2 -->
+      <div id="step2" style="display:none">
+        <div class="form-grid">
+          <div class="field full">
+            <label for="commName">Community / commonality name <b>*</b></label>
+            <input id="commName" type="text" placeholder="e.g. Newtown Athletic Club, Cranford HS Alumni, VFW Post 9045">
+            <span class="err">What community would this chapter be built around?</span>
+          </div>
+          <div class="field">
+            <label for="family">Chapter family <b>*</b></label>
+            <select id="family">
+              <option value="">Select…</option>
+              <option>Member (gym, club, association)</option>
+              <option>Alumni (school, university, team)</option>
+              <option>Veteran</option>
+              <option>Heroes (first responders)</option>
+              <option>Circle (invitation-only referral group)</option>
+              <option>Something else</option>
+            </select>
+            <span class="err">Pick the closest family.</span>
+          </div>
+          <div class="field">
+            <label for="cityState">City &amp; state <b>*</b></label>
+            <input id="cityState" type="text" placeholder="e.g. Newtown, PA">
+            <span class="err">Where would the chapter meet?</span>
+          </div>
+          <div class="field">
+            <label for="size">Community size (rough)</label>
+            <select id="size">
+              <option value="">Select…</option>
+              <option>Under 100 people</option>
+              <option>100 – 500 people</option>
+              <option>500 – 2,000 people</option>
+              <option>2,000+ people</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="venue">Venue idea</label>
+            <input id="venue" type="text" placeholder="e.g. the club's lounge, a member's restaurant">
+          </div>
+          <div class="field full">
+            <label for="why">Why this community?</label>
+            <textarea id="why" placeholder="What makes this community ready to do business together?"></textarea>
+          </div>
+        </div>
+        <div class="form-nav">
+          <button class="btn btn-ghost" id="back2">← Back</button>
+          <button class="btn btn-primary" id="next2">Review application
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- STEP 3 -->
+      <div id="step3" style="display:none">
+        <div class="table-scroll" style="margin-bottom:22px">
+          <table class="data-table" id="reviewTable"><tbody></tbody></table>
+        </div>
+        <div class="notice">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v5M12 16.5v.5"/></svg>
+          <span>Submitting opens a pre-filled email to our team — hit send and your application is in. We'll reach out to schedule your launch call.</span>
+        </div>
+        <div class="form-nav">
+          <button class="btn btn-ghost" id="back3">← Back</button>
+          <button class="btn btn-primary" id="submitBtn">Submit charter application
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- SUCCESS -->
+      <div id="stepDone" style="display:none">
+        <div class="form-success">
+          <div class="seal">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Your charter is on its way.</h3>
+          <p>If your email app opened, hit send to complete the application. We'll be in touch to schedule your launch call — welcome to the Coalition.</p>
+          <div class="hero-cta" style="justify-content:center;margin-top:28px">
+            <a href="chapters.html" class="btn btn-ghost">Browse chapters meanwhile</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <aside>
+      <div class="earn-card reveal" data-d="2" style="position:sticky;top:100px">
+        <div class="ec-label">What facilitators receive</div>
+        <div class="earn-row" style="border-top:none"><span>Premium membership</span><b>Free</b></div>
+        <div class="earn-row"><span>Chapter page &amp; directory</span><b>Included</b></div>
+        <div class="earn-row"><span>Admin tools &amp; training</span><b>Included</b></div>
+        <div class="earn-row"><span>Monthly event support</span><b>Included</b></div>
+        <div class="earn-row"><span>Revenue share</span><b>Yes</b></div>
+        <p class="earn-note">Facilitators pay nothing to launch. You bring the community — we bring everything else.</p>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <img src="assets/img/bcc-crest.png" alt="Biz Connect Coalition crest">
+        <p>Through an integrative business development ecosystem, we provide an incubator for small business expansion, innovation and creation.</p>
+      </div>
+      <div class="foot-col">
+        <h5>Explore</h5>
+        <a href="chapters.html">Chapter list</a>
+        <a href="membership.html">Membership</a>
+        <a href="facilitators.html">Facilitators</a>
+        <a href="faq.html">FAQ</a>
+      </div>
+      <div class="foot-col">
+        <h5>Get involved</h5>
+        <a href="start-a-chapter.html">Start a chapter</a>
+        <a href="chapters.html">Find a chapter</a>
+        <a href="portal.html">Member portal</a>
+        <a href="contact.html">Contact us</a>
+      </div>
+      <div class="foot-col">
+        <h5>The family</h5>
+        <a href="chapters.html?f=member">Member Biz Connect</a>
+        <a href="chapters.html?f=alumni">Alumni Biz Connect</a>
+        <a href="chapters.html?f=veteran">Veteran Biz Connect</a>
+        <a href="chapters.html?f=heroes">Heroes Biz Connect</a>
+      </div>
+    </div>
+    <div class="foot-base">
+      <p>© 2026 All Rights Reserved | Biz Connect Coalition</p>
+      <p class="fam">Part of the <b>DMJ Ventures</b> ecosystem</p>
+    </div>
+  </div>
+</footer>
+
+<script src="data/chapters.js"></script>
+<script src="assets/js/site.js"></script>
+<script>
+(function(){
+  var s1=document.getElementById("step1"),s2=document.getElementById("step2"),
+      s3=document.getElementById("step3"),done=document.getElementById("stepDone");
+  var fs1=document.getElementById("fs1"),fs2=document.getElementById("fs2"),fs3=document.getElementById("fs3");
+
+  function val(id){ return document.getElementById(id).value.trim(); }
+  function need(id,ok){
+    var f=document.getElementById(id).closest(".field");
+    f.classList.toggle("invalid",!ok);
+    return ok;
+  }
+  function show(step){
+    [s1,s2,s3,done].forEach(function(s){s.style.display="none";});
+    step.style.display="block";
+    document.getElementById("charterCard").scrollIntoView({behavior:"smooth",block:"start"});
+  }
+
+  document.getElementById("next1").addEventListener("click",function(){
+    var ok=true;
+    ok=need("fName",!!val("fName"))&&ok;
+    ok=need("lName",!!val("lName"))&&ok;
+    ok=need("email",/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(val("email")))&&ok;
+    if(!ok) return;
+    fs1.classList.remove("on");fs1.classList.add("done");fs2.classList.add("on");
+    show(s2);
+  });
+  document.getElementById("back2").addEventListener("click",function(){
+    fs2.classList.remove("on");fs1.classList.remove("done");fs1.classList.add("on");
+    show(s1);
+  });
+  document.getElementById("next2").addEventListener("click",function(){
+    var ok=true;
+    ok=need("commName",!!val("commName"))&&ok;
+    ok=need("family",!!val("family"))&&ok;
+    ok=need("cityState",!!val("cityState"))&&ok;
+    if(!ok) return;
+    var rows=[
+      ["Name",val("fName")+" "+val("lName")],
+      ["Email",val("email")],
+      ["Phone",val("phone")||"—"],
+      ["Community",val("commName")],
+      ["Chapter family",val("family")],
+      ["City / State",val("cityState")],
+      ["Community size",val("size")||"—"],
+      ["Venue idea",val("venue")||"—"],
+      ["Why this community",val("why")||"—"],
+      ["About you",val("bio")||"—"]
+    ];
+    var tb=document.querySelector("#reviewTable tbody");
+    tb.innerHTML=rows.map(function(r){
+      return "<tr><th style='width:190px'>"+r[0]+"</th><td>"+r[1].replace(/</g,"&lt;")+"</td></tr>";
+    }).join("");
+    fs2.classList.remove("on");fs2.classList.add("done");fs3.classList.add("on");
+    show(s3);
+  });
+  document.getElementById("back3").addEventListener("click",function(){
+    fs3.classList.remove("on");fs2.classList.remove("done");fs2.classList.add("on");
+    show(s2);
+  });
+  document.getElementById("submitBtn").addEventListener("click",function(){
+    var body=
+      "NEW CHAPTER CHARTER APPLICATION%0D%0A%0D%0A"+
+      "Name: "+encodeURIComponent(val("fName")+" "+val("lName"))+"%0D%0A"+
+      "Email: "+encodeURIComponent(val("email"))+"%0D%0A"+
+      "Phone: "+encodeURIComponent(val("phone"))+"%0D%0A"+
+      "Community: "+encodeURIComponent(val("commName"))+"%0D%0A"+
+      "Family: "+encodeURIComponent(val("family"))+"%0D%0A"+
+      "City/State: "+encodeURIComponent(val("cityState"))+"%0D%0A"+
+      "Size: "+encodeURIComponent(val("size"))+"%0D%0A"+
+      "Venue: "+encodeURIComponent(val("venue"))+"%0D%0A"+
+      "Why: "+encodeURIComponent(val("why"))+"%0D%0A"+
+      "About: "+encodeURIComponent(val("bio"));
+    window.location.href="mailto:info@bizconnectcoalition.com?subject="+
+      encodeURIComponent("Charter application — "+val("commName"))+"&body="+body;
+    fs3.classList.remove("on");fs3.classList.add("done");
+    show(done);
+  });
+})();
+</script>
+</body>
+</html>
