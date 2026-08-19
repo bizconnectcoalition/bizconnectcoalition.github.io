@@ -583,10 +583,81 @@ footer.site{border-top:1px solid var(--line-soft);background:var(--ink);position
 }
 .allie:hover .allie-close{opacity:1}
 .allie-close:hover{color:var(--ivory);border-color:var(--gold)}
+.allie-figure.chatting{animation:none;transform:scale(.92);transition:transform .4s}
+
+/* ---------- Allie chat panel ---------- */
+.allie-chat{
+  position:fixed;bottom:24px;right:236px;width:340px;max-width:calc(100vw - 40px);
+  background:linear-gradient(170deg,var(--navy-800),var(--navy-950));
+  border:1px solid var(--gold);border-radius:16px;overflow:hidden;
+  box-shadow:0 30px 70px -20px rgba(0,0,0,.7),0 0 0 4px rgba(198,151,47,.08);
+  opacity:0;transform:translateY(16px) scale(.96);transform-origin:bottom right;
+  pointer-events:none;transition:opacity .35s ease,transform .35s cubic-bezier(.2,1.1,.4,1);
+  display:flex;flex-direction:column;
+}
+.allie-chat.open{opacity:1;transform:translateY(0) scale(1);pointer-events:auto}
+.ac-head{
+  display:flex;align-items:center;gap:9px;padding:13px 16px;
+  background:rgba(198,151,47,.1);border-bottom:1px solid var(--line);
+}
+.ac-head b{font-family:var(--serif);font-weight:400;font-size:16px;letter-spacing:.06em;color:var(--ivory)}
+.ac-head .ac-sub{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-hi)}
+.ac-dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 0 rgba(95,185,138,.6);animation:pulse 2.2s infinite;flex:none}
+.ac-close{
+  margin-left:auto;background:none;border:none;color:var(--slate);font-size:20px;line-height:1;
+  cursor:pointer;padding:2px 4px;transition:color .25s;
+}
+.ac-close:hover{color:var(--ivory)}
+.ac-msgs{
+  padding:14px;display:flex;flex-direction:column;gap:9px;
+  height:280px;overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--navy-600) transparent;
+}
+.ac-msg{
+  max-width:86%;padding:9px 13px;border-radius:13px;font-size:13.5px;line-height:1.5;
+  animation:acmsg .3s ease both;white-space:pre-wrap;
+}
+@keyframes acmsg{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.ac-msg.allie{align-self:flex-start;background:var(--ivory);color:var(--navy-900);border-bottom-left-radius:4px}
+.ac-msg.user{align-self:flex-end;background:linear-gradient(135deg,var(--gold-hi),var(--gold));color:var(--navy-950);border-bottom-right-radius:4px;font-weight:500}
+.ac-msg.typing{display:flex;gap:4px;padding:12px 14px}
+.ac-msg.typing span{width:6px;height:6px;border-radius:50%;background:var(--navy-600);animation:acdot 1.2s infinite}
+.ac-msg.typing span:nth-child(2){animation-delay:.15s}
+.ac-msg.typing span:nth-child(3){animation-delay:.3s}
+@keyframes acdot{0%,60%,100%{transform:translateY(0);opacity:.5}30%{transform:translateY(-4px);opacity:1}}
+.ac-chips{display:flex;flex-wrap:wrap;gap:6px;padding:0 14px 10px}
+.ac-chip{
+  font-family:var(--mono);font-size:11px;letter-spacing:.02em;color:var(--gold-hi);
+  background:rgba(198,151,47,.1);border:1px solid var(--line);border-radius:100px;
+  padding:6px 12px;cursor:pointer;transition:.25s;text-align:left;
+}
+.ac-chip:hover{background:rgba(198,151,47,.22);color:var(--gold-glow)}
+.ac-input{
+  display:flex;align-items:center;gap:6px;padding:10px 12px;
+  border-top:1px solid var(--line-soft);background:rgba(10,20,40,.6);
+}
+.ac-input input{
+  flex:1;background:rgba(247,246,242,.06);border:1px solid var(--line-soft);border-radius:100px;
+  color:var(--ivory);font-family:var(--sans);font-size:13.5px;padding:9px 15px;outline:none;
+  transition:border-color .25s;
+}
+.ac-input input:focus{border-color:var(--gold)}
+.ac-input input::placeholder{color:var(--slate-dim)}
+.ac-input button{
+  width:36px;height:36px;flex:none;border-radius:50%;border:1px solid var(--line);cursor:pointer;
+  display:flex;align-items:center;justify-content:center;transition:.25s;padding:0;
+}
+.ac-input button svg{width:16px;height:16px}
+#allieMic{background:rgba(247,246,242,.05);color:var(--slate)}
+#allieMic:hover{color:var(--ivory);border-color:var(--gold)}
+#allieMic.listening{background:rgba(198,151,47,.25);color:var(--gold-glow);border-color:var(--gold);animation:pulse 1.6s infinite}
+#allieSend{background:linear-gradient(135deg,var(--gold-hi),var(--gold));color:var(--navy-950);border-color:transparent}
+#allieSend:hover{transform:scale(1.08)}
 @media (max-width:680px){
   .allie{right:12px;bottom:12px}
   .allie-figure{width:120px;height:200px}
   .allie-bubble{max-width:200px;font-size:12.5px}
+  .allie-chat{left:12px;right:12px;width:auto;bottom:224px}
+  .ac-msgs{height:200px}
 }
 @media (prefers-reduced-motion:reduce){
   .allie-figure{animation:none}
