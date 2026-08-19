@@ -114,12 +114,96 @@
     });
   };
 
-  /* map pins on the hero (index) */
-  BCC.dropPins=function(layerId, tipId, wrapId){
-    var layer=document.getElementById(layerId);
-    if(!layer||!window.BCC_CHAPTERS) return;
-    var tip=document.getElementById(tipId), wrap=document.getElementById(wrapId);
+  /* ---------- the geographic chapter map (index hero) ----------
+     Real US state geometry (assets/js/us-map.js, Albers USA projection)
+     with chapter pins at true coordinates. Defaults zoomed to the
+     Delaware Valley; a toggle animates out to the full United States.
+     Pins, labels, and the HQ star sit in scale(var(--pk)) groups so
+     they keep a constant on-screen size at any zoom level. */
+  BCC.buildMap=function(){
+    var svg=document.getElementById("regionMap");
+    if(!svg||!window.US_MAP||!window.BCC_CHAPTERS) return;
     var ns="http://www.w3.org/2000/svg";
+    var wrap=document.getElementById("mapWrap"), tip=document.getElementById("mapTip");
+    var VALLEY=US_MAP.valley, USA=US_MAP.vb;
+
+    function pk(vbW){ return vbW/400*(window.innerWidth<=680?1.4:1); }
+    function setVB(v){
+      svg.setAttribute("viewBox",v[0]+" "+v[1]+" "+v[2]+" "+v[3]);
+      svg.style.setProperty("--pk",pk(v[2]));
+    }
+    function anchored(el,x,y){ el.style.transform="translate("+x+"px,"+y+"px) scale(var(--pk))"; }
+
+    /* ocean layer — everything behind the land is water */
+    var sl=document.getElementById("statesLayer");
+    var sea=document.createElementNS(ns,"rect");
+    sea.setAttribute("x","-60"); sea.setAttribute("y","-60");
+    sea.setAttribute("width","1095"); sea.setAttribute("height","730");
+    sea.setAttribute("class","ocean");
+    sl.appendChild(sea);
+    /* states */
+    US_MAP.states.forEach(function(s){
+      var p=document.createElementNS(ns,"path");
+      p.setAttribute("d",s.d);
+      p.setAttribute("class","st"+(s.f?" focus":""));
+      p.setAttribute("data-n",s.n);
+      p.setAttribute("vector-effect","non-scaling-stroke");
+      sl.appendChild(p);
+    });
+
+    /* reference city labels (valley view only) */
+    var cl=document.getElementById("cityLayer");
+    for(var name in US_MAP.cities){
+      var xy=US_MAP.cities[name];
+      var g=document.createElementNS(ns,"g");
+      g.setAttribute("class","city val-only");
+      anchored(g,xy[0],xy[1]);
+      var d=document.createElementNS(ns,"circle");
+      d.setAttribute("r","1.6"); d.setAttribute("fill","rgba(221,224,230,.6)");
+      var t=document.createElementNS(ns,"text");
+      t.setAttribute("x","3.4"); t.setAttribute("y","-2.6");
+      t.setAttribute("font-size","8"); t.textContent=name;
+      g.appendChild(d); g.appendChild(t);
+      cl.appendChild(g);
+    }
+    /* water labels (valley view only) */
+    [["Delaware River",849.5,238.5,-52],["Atlantic Ocean",884,241,-64]].forEach(function(w){
+      var g=document.createElementNS(ns,"g");
+      g.setAttribute("class","sea val-only");
+      anchored(g,w[1],w[2]);
+      var t=document.createElementNS(ns,"text");
+      t.setAttribute("transform","rotate("+w[3]+")");
+      t.setAttribute("font-size","8.5"); t.textContent=w[0];
+      g.appendChild(t);
+      cl.appendChild(g);
+    });
+
+    /* HQ star — New Hope, PA (visible at both zooms) */
+    var hq=US_MAP.hq;
+    var hqG=document.createElementNS(ns,"g");
+    hqG.setAttribute("class","hq");
+    anchored(hqG,hq[0],hq[1]);
+    hqG.innerHTML=
+      '<circle r="10" fill="none" stroke="rgba(231,200,120,.55)" stroke-width=".9" stroke-dasharray="2 3"/>'+
+      '<path d="M0 -7 L2.1 -2.4 L7 -1.9 L3.3 1.4 L4.4 6.1 L0 3.7 L-4.4 6.1 L-3.3 1.4 L-7 -1.9 L-2.1 -2.4 Z" fill="#F0DCA0" filter="url(#hqGlow)"/>'+
+      '<text class="val-only" x="-31" y="-15" font-size="7.5" fill="#E7C878" letter-spacing="1">NEW HOPE · HQ</text>';
+    document.getElementById("hqLayer").appendChild(hqG);
+
+    /* dashed network lines from HQ — near set + far set */
+    var lines=document.getElementById("netLines");
+    function lineTo(slug,cls){
+      var c=null;
+      for(var i=0;i<BCC_CHAPTERS.length;i++){ if(BCC_CHAPTERS[i].slug===slug){ c=BCC_CHAPTERS[i]; break; } }
+      if(!c||!c.pin) return;
+      var ln=document.createElementNS(ns,"line");
+      ln.setAttribute("x1",hq[0]); ln.setAttribute("y1",hq[1]);
+      ln.setAttribute("x2",c.pin[0]); ln.setAttribute("y2",c.pin[1]);
+      ln.setAttribute("class",cls);
+      ln.setAttribute("vector-effect","non-scaling-stroke");
+      lines.appendChild(ln);
+    }
+    ["berks-moms-in-motion","spa23","temple-baseball","metro-adjusters","spring-grove"].forEach(function(s){ lineTo(s,"net val-only"); });
+    ["uwm","halstead-high","florida-educators","salve-regina-nursing","virginia-beach","southern-tier"].forEach(function(s){ lineTo(s,"net far us-only"); });
 
     /* "Beyond the Valley" strip — chapters outside the mapped region */
     var beyondMount=document.getElementById("mapBeyond");
@@ -138,11 +222,13 @@
       }
     }
 
+    /* pins — one per chapter, at its real (or estimated) location */
+    var layer=document.getElementById("pinLayer");
     BCC_CHAPTERS.filter(function(c){return c.pin;}).forEach(function(c,i){
       var g=document.createElementNS(ns,"g");
-      g.setAttribute("class","pin-g");
-      g.style.setProperty("--px",c.pin[0]+"px");
-      g.style.setProperty("--py",c.pin[1]+"px");
+      g.setAttribute("class","pin-g"+(c.beyond?" far-pin":""));
+      var inner=document.createElementNS(ns,"g");
+      anchored(inner,c.pin[0],c.pin[1]);
       var color=c.status==="active"?"#5FB98A":"#E7C878";
       var ring=document.createElementNS(ns,"circle");
       ring.setAttribute("r","10"); ring.setAttribute("fill","none");
@@ -153,10 +239,11 @@
       dot.setAttribute("r","4.6"); dot.setAttribute("fill",color);
       dot.setAttribute("stroke","rgba(10,20,40,.9)"); dot.setAttribute("stroke-width","1.6");
       dot.setAttribute("filter","url(#pinGlow)");
-      g.appendChild(ring); g.appendChild(dot);
-      g.addEventListener("mouseenter",function(evt){
+      inner.appendChild(ring); inner.appendChild(dot);
+      g.appendChild(inner);
+      g.addEventListener("mouseenter",function(){
         if(!tip||!wrap) return;
-        tip.innerHTML="<b>"+c.name+"</b>"+BCC.familyLabel(c.family)+" · "+c.loc;
+        tip.innerHTML="<b>"+c.name+"</b>"+BCC.familyLabel(c.family)+" · "+c.loc+(c.est?" · approx.":"");
         var r=wrap.getBoundingClientRect();
         var pt=dot.getBoundingClientRect();
         tip.style.left=Math.min(r.width-190,Math.max(8,pt.left-r.left-40))+"px";
@@ -166,7 +253,32 @@
       g.addEventListener("mouseleave",function(){ if(tip) tip.style.opacity="0"; });
       g.addEventListener("click",function(){ location.href="chapter.html?c="+encodeURIComponent(c.slug); });
       layer.appendChild(g);
-      setTimeout(function(){ g.classList.add("dropped"); }, 400+i*90);
+      setTimeout(function(){ g.classList.add("dropped"); }, 400+i*70);
     });
+
+    /* zoom toggle + animated viewBox */
+    setVB(VALLEY);
+    var btnV=document.getElementById("mzValley"), btnU=document.getElementById("mzUsa");
+    var current=VALLEY.slice(), animId=null;
+    function ease(t){ return t<.5 ? 4*t*t*t : 1-Math.pow(-2*t+2,3)/2; }
+    function zoomTo(target,usMode){
+      if(animId) cancelAnimationFrame(animId);
+      svg.classList.toggle("us-mode",usMode);
+      if(wrap) wrap.classList.toggle("us",usMode);
+      if(btnV) btnV.classList.toggle("on",!usMode);
+      if(btnU) btnU.classList.toggle("on",usMode);
+      if(tip) tip.style.opacity="0";
+      var from=current.slice(), t0=null, dur=950;
+      function frame(now){
+        if(!t0) t0=now;
+        var p=Math.min((now-t0)/dur,1), e=ease(p);
+        for(var i=0;i<4;i++){ current[i]=from[i]+(target[i]-from[i])*e; }
+        setVB(current);
+        if(p<1){ animId=requestAnimationFrame(frame); } else { animId=null; }
+      }
+      animId=requestAnimationFrame(frame);
+    }
+    if(btnV) btnV.addEventListener("click",function(){ zoomTo(VALLEY,false); });
+    if(btnU) btnU.addEventListener("click",function(){ zoomTo(USA,true); });
   };
 })();
