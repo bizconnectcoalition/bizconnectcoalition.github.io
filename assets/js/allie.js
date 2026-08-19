@@ -89,6 +89,18 @@
     if(lineIx!==0){ say(lines[lineIx]); }
   }, POSE_CYCLE_MS);
 
+  /* on small screens, step aside while a page form field has focus —
+     she was covering inputs on the contact / charter forms */
+  function pageField(el){
+    return el && /^(INPUT|TEXTAREA|SELECT)$/.test(el.tagName) && !root.contains(el);
+  }
+  document.addEventListener("focusin",function(e){
+    if(window.innerWidth<=680 && pageField(e.target)){ root.classList.add("form-focus"); }
+  });
+  document.addEventListener("focusout",function(e){
+    if(pageField(e.target)){ root.classList.remove("form-focus"); }
+  });
+
   document.getElementById("allieClose").addEventListener("click",function(){
     root.classList.add("bye");
     sessionStorage.setItem("allieHidden","1");
