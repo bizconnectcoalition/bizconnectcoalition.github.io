@@ -158,7 +158,24 @@ window.ALLIE_BRAIN = [
     s:["What is Biz Connect Coalition?","How much does it cost?","Is there a chapter near me?"] },
   { k:["bye","goodbye","see you","later","that's all"],
     a:"See you at an event soon! And remember — your community is already meeting. Give it a map pin. 👋",
-    s:[] }
+    s:[] },
+
+  /* ---------- from the founder's own playbook ---------- */
+  { k:["venue","host location","gym benefit","what does the venue get","why would a gym","school benefit","church benefit","country club"],
+    a:"Venues host for free — and they love it. The chapter is a value-add for their membership: their members get a monthly networking night, guests come through the doors (and often become members), and the venue doesn't lift a finger — no staff, no website, no invites. The Coalition runs everything. It's one more reason to belong to that gym, club, or association.",
+    s:["How do I start a chapter?","What do facilitators get?"] },
+  { k:["no show","no-shows","registered but","who registered","see registrations","attendee list"],
+    a:"Here's a facilitator perk nobody talks about: roughly half the people who register for a free networking event never make it. Facilitators see everyone who registered — including the no-shows — so they can follow up personally: \"Saw you signed up, would love to meet you at the next one.\" Premium members get the contact list of everyone who actually attended, delivered to their dashboard after every event.",
+    s:["What do Premium members get?","How do I become a facilitator?"] },
+  { k:["reminder","check in","check-in","qr code","how do events work","event automation","registration work"],
+    a:"It's all automated. Register for an event and you get a confirmation; the day before, a reminder lands in your inbox; at the door there's a QR-code check-in (it even registers you on the spot if you hadn't). When the next event is scheduled, everyone who came before gets invited automatically. The facilitator just hosts the room — the machine does the rest.",
+    s:["What happens at an event?","Can I bring a guest?"] },
+  { k:["elite","mastermind","dinner club","leaders dinner","high level","executives"],
+    a:"The Elite Mastermind is the top of the ladder — a curated dinner-club of established business owners. Think ten first-class dinners a year at hand-picked local restaurants, food and drink included, around a table of genuine peers — a country-club feel without the country club. It's invitation-only, and the investment keeps the table serious: no posers, just operators. Apply through the membership page.",
+    s:["See membership tiers","How much does it cost?"] },
+  { k:["bni","letip","le tip","chamber","meetup","networking group","compare","competitor","difference between"],
+    a:"BNI and LeTip run $1,000+ a year for a seat. Biz Connect Circles gives you the same industry exclusivity — one seat per industry, weekly referral cadence — for $399. And underneath that, Core chapters are free forever, built around a community you already belong to, so the room is warm before you walk in. Chambers and meetups put strangers in a room; we start with a bond.",
+    s:["What are Circles?","How much does it cost?"] }
 ];
 
 /* page-specific opening suggestions for the chat panel */

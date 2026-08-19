@@ -363,6 +363,24 @@ header.site.scrolled{
 .cc-status.active .dot{background:var(--green)}
 .cc-status.forming .dot{background:var(--gold-hi)}
 .chapter-card h3{font-size:21px;font-family:var(--serif);color:var(--ivory)}
+/* real chapter logo, floated into the card's top-right */
+.cc-logo{
+  position:absolute;top:54px;right:22px;width:52px;height:52px;border-radius:50%;
+  background:var(--ivory);border:1px solid var(--line);padding:5px;
+  display:flex;align-items:center;justify-content:center;overflow:hidden;
+  box-shadow:0 8px 18px rgba(0,0,0,.35);
+}
+.cc-logo img{width:100%;height:100%;object-fit:contain;border-radius:50%}
+.chapter-card:has(.cc-logo) h3{padding-right:62px}
+/* chapter detail hero: logo beside the title */
+.ch-title{display:flex;align-items:center;gap:20px;margin:6px 0 14px;flex-wrap:wrap}
+.ch-title h1{margin:0}
+.ch-logo{
+  width:88px;height:88px;flex:none;border-radius:50%;background:var(--ivory);
+  border:1px solid var(--line);padding:8px;display:flex;align-items:center;justify-content:center;
+  overflow:hidden;box-shadow:var(--shadow-md);
+}
+.ch-logo img{width:100%;height:100%;object-fit:contain;border-radius:50%}
 .chapter-card .cc-loc{font-size:13.5px;color:var(--slate);display:flex;align-items:center;gap:7px}
 .chapter-card .cc-loc svg{width:13px;height:13px;stroke:var(--slate-dim);flex:none}
 .chapter-card p{font-size:14px;color:var(--slate);flex:1}
