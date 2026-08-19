@@ -92,15 +92,16 @@
             <filter id="hqGlow" x="-120%" y="-120%" width="340%" height="340%">
               <feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
             </filter>
-            <!-- engraved sea: near-black water with fine horizontal rule lines -->
-            <pattern id="seaTex" width="7.5" height="7.5" patternUnits="userSpaceOnUse">
-              <rect width="7.5" height="7.5" fill="#060F1E"/>
-              <path d="M0 3.75h7.5" stroke="rgba(140,160,195,.13)" stroke-width="1.1"/>
+            <!-- the sea: steel-blue water with engraved scalloped wave rows -->
+            <pattern id="seaTex" width="18" height="12" patternUnits="userSpaceOnUse">
+              <rect width="18" height="12" fill="#214763"/>
+              <path d="M0 3.6 Q4.5 1.4 9 3.6 T18 3.6" fill="none" stroke="rgba(132,184,224,.34)" stroke-width="1.1"/>
+              <path d="M-9 9.6 Q-4.5 7.4 0 9.6 T9 9.6 Q13.5 7.4 18 9.6 T27 9.6" fill="none" stroke="rgba(132,184,224,.19)" stroke-width="1.1"/>
             </pattern>
-            <!-- parchment-grain land: faint diagonal gold hairlines -->
+            <!-- ink-dark land: faint gold hairline grain -->
             <pattern id="landTex" width="9" height="9" patternUnits="userSpaceOnUse">
-              <path d="M0 9L9 0" stroke="rgba(231,200,120,.055)" stroke-width=".6"/>
-              <path d="M-2 2L2 -2M7 11L11 7" stroke="rgba(231,200,120,.032)" stroke-width=".6"/>
+              <path d="M0 9L9 0" stroke="rgba(231,200,120,.06)" stroke-width=".6"/>
+              <path d="M-2 2L2 -2M7 11L11 7" stroke="rgba(231,200,120,.035)" stroke-width=".6"/>
             </pattern>
           </defs>
           <g id="seaLayer"></g>
