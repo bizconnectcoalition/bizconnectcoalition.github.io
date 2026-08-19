@@ -103,8 +103,11 @@
               <path d="M0 9L9 0" stroke="rgba(236,222,180,.07)" stroke-width=".6"/>
               <path d="M-2 2L2 -2M7 11L11 7" stroke="rgba(236,222,180,.04)" stroke-width=".6"/>
             </pattern>
+            <!-- vector mask so the terrain photo only shows on land -->
+            <clipPath id="landClip"></clipPath>
           </defs>
           <g id="seaLayer"></g>
+          <g id="terrainLayer" clip-path="url(#landClip)"></g>
           <g id="statesLayer"></g>
           <g id="netLines"></g>
           <g id="cityLayer"></g>

@@ -147,7 +147,23 @@
     sea.setAttribute("width","1095"); sea.setAttribute("height","730");
     sea.setAttribute("class","ocean");
     document.getElementById("seaLayer").appendChild(sea);
-    /* states — each gets a fill pass and a texture pass */
+    /* real relief photo (Natural Earth, public domain, reprojected to
+       this exact Albers space) clipped to the land outline */
+    var clip=document.getElementById("landClip");
+    US_MAP.states.forEach(function(s){
+      var cp=document.createElementNS(ns,"path");
+      cp.setAttribute("d",s.d);
+      clip.appendChild(cp);
+    });
+    var terrain=document.createElementNS(ns,"image");
+    terrain.setAttribute("href","assets/img/us-terrain.jpg");
+    terrain.setAttribute("x","0"); terrain.setAttribute("y","0");
+    terrain.setAttribute("width","975"); terrain.setAttribute("height","610");
+    terrain.setAttribute("preserveAspectRatio","none");
+    terrain.setAttribute("class","terrain");
+    document.getElementById("terrainLayer").appendChild(terrain);
+
+    /* states — a tint/border pass and a grain pass over the relief */
     var sl=document.getElementById("statesLayer");
     US_MAP.states.forEach(function(s){
       var p=document.createElementNS(ns,"path");
@@ -298,6 +314,37 @@
     }
     if(btnV) btnV.addEventListener("click",function(){ zoomTo(VALLEY,false); });
     if(btnU) btnU.addEventListener("click",function(){ zoomTo(USA,true); });
+
+    /* click-and-drag panning (mouse) — so you can wander the country
+       and find your way back to the Valley */
+    var dragging=false, dragMoved=false, dx0=0, dy0=0, vb0=null;
+    svg.addEventListener("pointerdown",function(e){
+      if(e.pointerType!=="mouse"||e.button!==0) return;
+      dragging=true; dragMoved=false;
+      dx0=e.clientX; dy0=e.clientY; vb0=current.slice();
+      if(animId){ cancelAnimationFrame(animId); animId=null; }
+    });
+    window.addEventListener("pointermove",function(e){
+      if(!dragging) return;
+      var mx=e.clientX-dx0, my=e.clientY-dy0;
+      if(!dragMoved && Math.abs(mx)+Math.abs(my)<4) return;
+      dragMoved=true;
+      svg.classList.add("grabbing");
+      var r=svg.getBoundingClientRect();
+      current[0]=Math.max(-60,Math.min(1035-current[2],vb0[0]-mx*current[2]/r.width));
+      current[1]=Math.max(-60,Math.min(670-current[3],vb0[1]-my*current[3]/r.height));
+      setVB(current);
+      if(tip) tip.style.opacity="0";
+    });
+    window.addEventListener("pointerup",function(){
+      if(!dragging) return;
+      dragging=false;
+      svg.classList.remove("grabbing");
+    });
+    /* a drag is not a click — don't fire pin navigation on release */
+    svg.addEventListener("click",function(e){
+      if(dragMoved){ e.stopPropagation(); e.preventDefault(); dragMoved=false; }
+    },true);
 
     /* scroll-wheel zoom, anchored at the cursor */
     svg.addEventListener("wheel",function(e){
