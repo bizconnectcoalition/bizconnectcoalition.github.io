@@ -211,18 +211,20 @@ header.site.scrolled{
 #regionMap #statesLayer{
   filter:drop-shadow(0 4px 12px rgba(0,0,0,.65)) drop-shadow(0 0 1.5px rgba(231,200,120,.4));
 }
-#regionMap .st{fill:#0C1526;stroke:rgba(140,160,195,.22);stroke-width:1;transition:fill .6s}
-#regionMap .st.focus{fill:#121F38;stroke:rgba(198,151,47,.6);stroke-width:1.3}
+/* LAND IS EARTH, NOT BLUE: dark olive-khaki terrain tones —
+   tan-and-green land against blue water, per the boss */
+#regionMap .st{fill:#3B4028;stroke:rgba(214,204,164,.25);stroke-width:1;transition:fill .6s}
+#regionMap .st.focus{fill:#474E31;stroke:rgba(198,151,47,.7);stroke-width:1.3}
 /* two-tone the river border: NJ reads a shade different from PA */
-#regionMap .st[data-n="New Jersey"]{fill:#0E1B32}
-#regionMap .st[data-n="Delaware"],#regionMap .st[data-n="Maryland"]{fill:#0D1830}
-#regionMap.us-mode .st{fill:#0B1424}
+#regionMap .st[data-n="New Jersey"]{fill:#424929}
+#regionMap .st[data-n="Delaware"],#regionMap .st[data-n="Maryland"]{fill:#3F462C}
+#regionMap.us-mode .st{fill:#343922}
 #regionMap.us-mode .st.focus,
 #regionMap.us-mode .st[data-n="New Jersey"],
 #regionMap.us-mode .st[data-n="Delaware"],
-#regionMap.us-mode .st[data-n="Maryland"]{fill:#101C31;stroke:rgba(198,151,47,.4);stroke-width:1}
+#regionMap.us-mode .st[data-n="Maryland"]{fill:#3E442B;stroke:rgba(198,151,47,.45);stroke-width:1}
 #regionMap .sttex{fill:url(#landTex);stroke:none;pointer-events:none}
-#regionMap .city text{font-family:'IBM Plex Mono',monospace;fill:rgba(221,224,230,.62)}
+#regionMap .city text{font-family:'IBM Plex Mono',monospace;fill:rgba(236,228,202,.72)}
 #regionMap .sea text{font-family:'Cormorant Garamond',serif;font-style:italic;fill:rgba(231,200,120,.44)}
 #regionMap .hq text{font-family:'IBM Plex Mono',monospace}
 /* at the national zoom the valley cluster tightens so it reads as
