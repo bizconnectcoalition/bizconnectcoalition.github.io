@@ -610,14 +610,16 @@ footer.site{border-top:1px solid var(--line-soft);background:var(--ink);position
 .ac-close:hover{color:var(--ivory)}
 .ac-msgs{
   padding:14px;display:flex;flex-direction:column;gap:9px;
-  height:280px;overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--navy-600) transparent;
+  max-height:300px;overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--navy-600) transparent;
 }
+/* the ambient tip bubble never shows while the chat is open */
+.allie-chat.open~.allie-bubble{display:none!important}
 .ac-msg{
   max-width:86%;padding:9px 13px;border-radius:13px;font-size:13.5px;line-height:1.5;
   animation:acmsg .3s ease both;white-space:pre-wrap;
 }
 @keyframes acmsg{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
-.ac-msg.allie{align-self:flex-start;background:var(--ivory);color:var(--navy-900);border-bottom-left-radius:4px}
+.ac-msg.bot{align-self:flex-start;background:var(--ivory);color:var(--navy-900);border-bottom-left-radius:4px}
 .ac-msg.user{align-self:flex-end;background:linear-gradient(135deg,var(--gold-hi),var(--gold));color:var(--navy-950);border-bottom-right-radius:4px;font-weight:500}
 .ac-msg.typing{display:flex;gap:4px;padding:12px 14px}
 .ac-msg.typing span{width:6px;height:6px;border-radius:50%;background:var(--navy-600);animation:acdot 1.2s infinite}
@@ -657,7 +659,7 @@ footer.site{border-top:1px solid var(--line-soft);background:var(--ink);position
   .allie-figure{width:120px;height:200px}
   .allie-bubble{max-width:200px;font-size:12.5px}
   .allie-chat{left:12px;right:12px;width:auto;bottom:224px}
-  .ac-msgs{height:200px}
+  .ac-msgs{max-height:200px}
 }
 @media (prefers-reduced-motion:reduce){
   .allie-figure{animation:none}

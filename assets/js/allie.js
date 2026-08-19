@@ -188,18 +188,18 @@
     input.value="";
     var nav=NAV[q.toLowerCase()];
     var typing=document.createElement("div");
-    typing.className="ac-msg allie typing";
+    typing.className="ac-msg bot typing";
     typing.innerHTML="<span></span><span></span><span></span>";
     msgs.appendChild(typing); msgs.scrollTop=msgs.scrollHeight;
     setTimeout(function(){
       typing.remove();
       if(nav){
-        addMsg("Right this way!","allie");
+        addMsg("Right this way!","bot");
         setTimeout(function(){ location.href=nav; }, 700);
         return;
       }
       var res=answer(q);
-      addMsg(res.a,"allie");
+      addMsg(res.a,"bot");
       setChips(res.s&&res.s.length?res.s:openers);
       nextPose(); /* she strikes a new pose when she answers */
     }, 650+Math.random()*500);
@@ -207,11 +207,12 @@
 
   function openChat(){
     chat.classList.add("open");
+    clearTimeout(bubbleTimer);
     bubble.classList.remove("show");
     figure.classList.add("chatting");
     if(!chatOpened){
       chatOpened=true;
-      addMsg("Hi! I'm Allie 👋 Ask me anything about the Coalition — or tap a question below.","allie");
+      addMsg("Hi! I'm Allie 👋 Ask me anything about the Coalition — or tap a question below.","bot");
       setChips(openers);
     }
     setTimeout(function(){ input.focus(); }, 350);
