@@ -131,17 +131,24 @@
     function setVB(v){
       svg.setAttribute("viewBox",v[0]+" "+v[1]+" "+v[2]+" "+v[3]);
       svg.style.setProperty("--pk",pk(v[2]));
+      /* keep the engraved textures at a constant on-screen scale */
+      var s=v[2]/975;
+      ["seaTex","landTex"].forEach(function(id){
+        var pat=document.getElementById(id);
+        if(pat) pat.setAttribute("patternTransform","scale("+s+")");
+      });
     }
     function anchored(el,x,y){ el.style.transform="translate("+x+"px,"+y+"px) scale(var(--pk))"; }
 
-    /* ocean layer — everything behind the land is water */
-    var sl=document.getElementById("statesLayer");
+    /* ocean layer — everything behind the land is water (its own layer,
+       so the land group can cast a shadow onto it) */
     var sea=document.createElementNS(ns,"rect");
     sea.setAttribute("x","-60"); sea.setAttribute("y","-60");
     sea.setAttribute("width","1095"); sea.setAttribute("height","730");
     sea.setAttribute("class","ocean");
-    sl.appendChild(sea);
-    /* states */
+    document.getElementById("seaLayer").appendChild(sea);
+    /* states — each gets a fill pass and a texture pass */
+    var sl=document.getElementById("statesLayer");
     US_MAP.states.forEach(function(s){
       var p=document.createElementNS(ns,"path");
       p.setAttribute("d",s.d);
@@ -149,6 +156,12 @@
       p.setAttribute("data-n",s.n);
       p.setAttribute("vector-effect","non-scaling-stroke");
       sl.appendChild(p);
+    });
+    US_MAP.states.forEach(function(s){
+      var t=document.createElementNS(ns,"path");
+      t.setAttribute("d",s.d);
+      t.setAttribute("class","sttex");
+      sl.appendChild(t);
     });
 
     /* reference city labels (valley view only) */
@@ -256,19 +269,24 @@
       setTimeout(function(){ g.classList.add("dropped"); }, 400+i*70);
     });
 
-    /* zoom toggle + animated viewBox */
+    /* zoom toggle + animated viewBox + mouse-wheel zoom */
     setVB(VALLEY);
     var btnV=document.getElementById("mzValley"), btnU=document.getElementById("mzUsa");
     var current=VALLEY.slice(), animId=null;
+    var AR=USA[3]/USA[2]; /* height per width */
     function ease(t){ return t<.5 ? 4*t*t*t : 1-Math.pow(-2*t+2,3)/2; }
-    function zoomTo(target,usMode){
-      if(animId) cancelAnimationFrame(animId);
+    function setMode(usMode){
       svg.classList.toggle("us-mode",usMode);
       if(wrap) wrap.classList.toggle("us",usMode);
       if(btnV) btnV.classList.toggle("on",!usMode);
       if(btnU) btnU.classList.toggle("on",usMode);
+    }
+    function zoomTo(target,usMode){
+      if(animId) cancelAnimationFrame(animId);
+      setMode(usMode);
       if(tip) tip.style.opacity="0";
-      var from=current.slice(), t0=null, dur=950;
+      /* the pull-back to the whole country deserves a slow, cinematic ride */
+      var from=current.slice(), t0=null, dur=usMode?2400:1600;
       function frame(now){
         if(!t0) t0=now;
         var p=Math.min((now-t0)/dur,1), e=ease(p);
@@ -280,5 +298,27 @@
     }
     if(btnV) btnV.addEventListener("click",function(){ zoomTo(VALLEY,false); });
     if(btnU) btnU.addEventListener("click",function(){ zoomTo(USA,true); });
+
+    /* scroll-wheel zoom, anchored at the cursor */
+    svg.addEventListener("wheel",function(e){
+      e.preventDefault();
+      if(animId){ cancelAnimationFrame(animId); animId=null; }
+      var f=e.deltaY>0?1.16:1/1.16;
+      var newW=Math.min(USA[2],Math.max(45,current[2]*f));
+      f=newW/current[2];
+      if(f===1) return;
+      var r=svg.getBoundingClientRect();
+      var mx=current[0]+(e.clientX-r.left)/r.width*current[2];
+      var my=current[1]+(e.clientY-r.top)/r.height*current[3];
+      current[2]*=f; current[3]=current[2]*AR;
+      current[0]=mx-(mx-current[0])*f;
+      current[1]=my-(my-current[1])*f;
+      /* keep the view over the map */
+      current[0]=Math.max(-60,Math.min(1035-current[2],current[0]));
+      current[1]=Math.max(-60,Math.min(670-current[3],current[1]));
+      setVB(current);
+      setMode(current[2]>300);
+      if(tip) tip.style.opacity="0";
+    },{passive:false});
   };
 })();
